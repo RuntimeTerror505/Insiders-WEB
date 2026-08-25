@@ -1,3 +1,4 @@
+import AiPlanSection from "@/components/sections/home/ai-plan/ai-plan-section";
 import CasesSection from "@/components/sections/home/cases/cases-section";
 import ContactSection from "@/components/sections/home/contact/contact-section";
 import HeroSection from "@/components/sections/home/hero/hero-section";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <TestimonialsSection />
       <AnimatedRunStroke title="Brands Trust Us" items={brands} />
       <CasesSection />
+      <AiPlanSection />
       <CardGridSection
         eyebrow="Grow faster with fantastic changes"
         title="Our Mobile App Development Services"

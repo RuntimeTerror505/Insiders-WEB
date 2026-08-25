@@ -200,3 +200,37 @@
     @apply font-sans;
   }
 }
+
+/*
+ * Підкладка градієнтного CTA-банера з макета. У Figma це стос шарів:
+ * лінійний градієнт, два величезні розмиті еліпси (#1874F6 ліворуч і
+ * #FF7182 праворуч) та шум у soft-light. Еліпси зводимо до радіальних
+ * градієнтів — вони тягнуться за шириною банера, тоді як фігмівські
+ * координати прибиті до 1200px.
+ */
+@utility bg-cta-gradient {
+  background-image:
+    radial-gradient(
+      50% 86% at 102% 84%,
+      rgb(255 106 120 / 0.78) 0%,
+      rgb(255 106 120 / 0) 64%
+    ),
+    radial-gradient(
+      72% 80% at 38% 124%,
+      var(--color-brand-gradient-end) 0%,
+      rgb(66 2 60 / 0) 76%
+    ),
+    linear-gradient(96deg, #2d5be5 0%, #a83aac 47%, #de34b0 100%);
+}
+
+/*
+ * Сітка квадратів 8.69px із кроком 17.38px — геометрія вектора Intersect
+ * із того ж банера. Тримаємо тайлом, бо сам вектор з Figma важить 355 КБ:
+ * це 1089 окремих прямокутників. У макеті сітку зверху перекриває
+ * розмитий еліпс, тому маска лишає її сильною тільки внизу ліворуч.
+ */
+@utility bg-cta-dots {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17.3846' height='17.3846'%3E%3Crect width='8.6923' height='8.6923' fill='%23fff'/%3E%3C/svg%3E");
+  background-size: 17.3846px 17.3846px;
+  mask-image: radial-gradient(58% 92% at 0% 100%, #000 0%, transparent 62%);
+}
