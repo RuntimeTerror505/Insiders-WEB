@@ -26,8 +26,12 @@ const GROUPS = [
       Flutter: "flutter",
       Python: "python",
       "Vue.js": "vuejs",
+      "Node.js": "nodejs",
+      Postgres: "postgresql",
+      Redis: "redis",
+      "Socket.IO": "socketio",
       Firebase: "firebase",
-      TensorFlow: "tensorflow",
+      PyTorch: "pytorch",
     },
   },
   {

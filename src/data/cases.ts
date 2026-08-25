@@ -26,7 +26,7 @@ export const cases: CaseStudy[] = [
     category: "Loyalty & Rewards App",
     description:
       "Chill Bill is a mobile app that simplifies the management of restaurant loyalty cards. Users can store their cards digitally, and the app provides updates on discounts from partner restaurants, helping them stay informed about the best deals.",
-    tech: ["Flutter", "Python", "Vue.js", "Firebase"],
+    tech: ["Flutter", "Node.js", "Postgres", "Firebase"],
     rating: { score: 4.9, count: "34.5K" },
     stores: { appStore: "#", googlePlay: "#" },
     image: {
@@ -40,7 +40,7 @@ export const cases: CaseStudy[] = [
     category: "Entertainment App",
     description:
       "Truth or Dare is a mobile app designed for team gameplay. It brings the classic party game to your fingertips, providing a fun and engaging way to challenge each other with daring tasks and revealing questions.",
-    tech: ["Flutter", "Python", "Vue.js", "Firebase"],
+    tech: ["Flutter", "Node.js", "Socket.IO", "Redis"],
     rating: { score: 5, count: "11.2K" },
     stores: { appStore: "#", googlePlay: "#" },
     image: {
@@ -54,7 +54,7 @@ export const cases: CaseStudy[] = [
     category: "Social Networking App",
     description:
       "Pixy is a mobile app for social navigation that helps users structure and enhance their social lives. It provides personalized event and activity recommendations based on user interests, allows users to create their own events, and invite others.",
-    tech: ["Flutter", "Python", "Vue.js", "Firebase"],
+    tech: ["Flutter", "Python", "Postgres", "PyTorch"],
     rating: { score: 4.9, count: "21.1K" },
     stores: { appStore: "#", googlePlay: "#" },
     image: {
