@@ -21,7 +21,7 @@ export default function Logo({
     >
       {/* Пропорція 275/233 — як у макеті; у хедері висота = 48px. */}
       <Image
-        src="/logo-insiders.png"
+        src="/logo-insiders.avif"
         alt="Insiders"
         width={275}
         height={233}

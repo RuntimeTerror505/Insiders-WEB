@@ -40,13 +40,13 @@ export default function CasesHeroSection() {
               className="from-brand-500 to-brand-gradient-start absolute inset-[8%] rounded-full bg-linear-to-br"
             />
             <Image
-              src="/hero-phones.png"
+              src="/cases/hero-hand.avif"
               alt="Екрани застосунків, зроблених командою Insiders"
               width={1024}
               height={768}
               priority
               sizes="(min-width: 1024px) 520px, 100vw"
-              className="absolute top-1/2 left-1/2 w-[112%] max-w-none -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-1/2 left-49 w-[112%] max-w-none -translate-x-1/2 -translate-y-1/2"
             />
           </div>
         </div>

@@ -48,7 +48,7 @@ export default function HeroSection() {
           <HeroRings className="absolute top-[-10%] left-[-10%] size-[120%] sm:top-[-25%] sm:left-[-25%] sm:size-[150%]" />
 
           <Image
-            src="/hero-phones.png"
+            src="/hero-phones.avif"
             alt="Екрани застосунків Chill Bill, Truth or Dare та Pixy"
             width={1024}
             height={768}
