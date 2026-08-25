@@ -4,10 +4,78 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@theme {
+  --container-page: 80rem; /* 1280px */
+  --container-wide: 90rem; /* 1440px */
+
+  /*
+   * Insiders brand scale — Figma "New Insiders".
+   * 500 — акцент з макета (кнопка AI Plan, активні стани).
+   * 600–950 — градієнт логотипу, від магенти до майже чорного пурпуру.
+   * 50–400 — тінти 500 на білому, для фонів і бордерів.
+   */
+  --color-brand-50: #fdf3fc;
+  --color-brand-100: #fbe3f8;
+  --color-brand-200: #f8c6f0;
+  --color-brand-300: #f3a4e8;
+  --color-brand-400: #ed72db;
+  --color-brand-500: #e535cb;
+  --color-brand-600: #c603b2;
+  --color-brand-700: #8e0280;
+  --color-brand-800: #64025a;
+  --color-brand-900: #4c0144;
+  --color-brand-950: #33012e;
+
+  /*
+   * Кінці градієнта заголовків і логотипа. Окремо від шкали 50–950,
+   * бо це власні значення з макета, а не її кроки.
+   */
+  --color-brand-gradient-start: #a80599;
+  --color-brand-gradient-end: #42023c;
+
+  /*
+   * Градієнт бейджа «We are on a MISSION» — теплий, поза брендовою
+   * шкалою; у макеті середня зупинка стоїть на 54%.
+   */
+  --color-mission-start: #b16cea;
+  --color-mission-mid: #ff5e69;
+  --color-mission-end: #ffa84b;
+
+  /*
+   * Нейтралі й акценти карток відгуків із макета. rating збігається
+   * з теплим кінцем градієнта бейджа — у макеті це той самий бурштин.
+   */
+  --color-surface: #fcfcfc;
+  --color-rating: #ffa84b;
+
+  /*
+   * Тіні. Підкладка попапів — на брендовому пурпурі, а не на
+   * нейтральному чорному, інакше поряд з магентою вона сіріє.
+   */
+  --shadow-popover: 0 16px 48px -12px
+    color-mix(in oklab, var(--color-brand-950) 18%, transparent);
+  --shadow-button: 0 4px 4px color-mix(in oklab, #000 15%, transparent);
+
+  /*
+   * Нескінченна стрічка логотипів. Трек містить рівно дві однакові копії,
+   * тому зсув на -50% повертає його в стартову позицію без стику.
+   */
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-montserrat);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -39,6 +107,7 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
+  --color-header: var(--header);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -49,49 +118,51 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  --background: #ffffff;
+  --foreground: #000000;
+  --card: #ffffff;
+  --card-foreground: #000000;
+  --popover: #ffffff;
+  --popover-foreground: #000000;
+  --primary: var(--color-brand-500);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-brand-50);
+  --secondary-foreground: var(--color-brand-700);
   --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --muted-foreground: #545659;
+  --accent: var(--color-brand-50);
+  --accent-foreground: var(--color-brand-700);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --border: #e0e3e6;
+  --input: #e0e3e6;
+  --ring: var(--color-brand-500);
+  --chart-1: var(--color-brand-500);
+  --chart-2: var(--color-brand-600);
+  --chart-3: var(--color-brand-700);
+  --chart-4: var(--color-brand-800);
+  --chart-5: var(--color-brand-950);
+  /* Поверхня хедера з макета: білий 85% + backdrop-blur 4px. */
+  --header: rgb(255 255 255 / 0.85);
+  --radius: 0.75rem; /* 12px — радіус кнопок у макеті */
+  --sidebar: #ffffff;
+  --sidebar-foreground: #000000;
+  --sidebar-primary: var(--color-brand-500);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: var(--color-brand-50);
+  --sidebar-accent-foreground: var(--color-brand-700);
   --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --sidebar-ring: var(--color-brand-500);
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: var(--color-brand-950);
   --foreground: oklch(0.985 0 0);
   --card: oklch(0.205 0 0);
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.922 0 0);
-  --primary-foreground: oklch(0.205 0 0);
+  --primary: var(--color-brand-400);
+  --primary-foreground: var(--color-brand-950);
   --secondary: oklch(0.269 0 0);
   --secondary-foreground: oklch(0.985 0 0);
   --muted: oklch(0.269 0 0);
@@ -101,20 +172,21 @@
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.556 0 0);
-  --chart-1: oklch(0.87 0 0);
-  --chart-2: oklch(0.556 0 0);
-  --chart-3: oklch(0.439 0 0);
-  --chart-4: oklch(0.371 0 0);
-  --chart-5: oklch(0.269 0 0);
+  --ring: var(--color-brand-400);
+  --chart-1: var(--color-brand-300);
+  --chart-2: var(--color-brand-400);
+  --chart-3: var(--color-brand-500);
+  --chart-4: var(--color-brand-600);
+  --chart-5: var(--color-brand-700);
+  --header: rgb(51 1 46 / 0.85);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-primary: var(--color-brand-400);
+  --sidebar-primary-foreground: var(--color-brand-950);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+  --sidebar-ring: var(--color-brand-400);
 }
 
 @layer base {
