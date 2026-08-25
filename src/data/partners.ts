@@ -1,19 +1,17 @@
 export type Partner = {
   name: string;
-  /** SVG у public/logos. Поки файлу нема — у смузі рендериться назва. */
-  logo?: string;
+  /** Лого з public/. Поки файлу нема — у смузі рендериться назва. */
+  logo?: { src: string; width: number; height: number };
 };
 
-// TODO: додати SVG логотипів — у макеті це повні локапи (знак + вордмарк)
-// у фірмових кольорах, монохромні іконки з components/icons/tech не підійдуть.
 export const partners: Partner[] = [
-  { name: "Flutter" },
-  { name: "Fastly" },
-  { name: "Firebase" },
-  { name: "Python" },
-  { name: "Vue.js" },
-  { name: "Docker" },
-  { name: "AWS" },
-  { name: "Stripe" },
-  { name: "CloudWatch" },
+  { name: "Flutter", logo: { src: "/logos/flutter.webp", width: 532, height: 152 } },
+  { name: "Fastly", logo: { src: "/logos/fastly.webp", width: 392, height: 152 } },
+  { name: "Firebase", logo: { src: "/logos/firebase.webp", width: 540, height: 152 } },
+  { name: "Python", logo: { src: "/logos/python.webp", width: 624, height: 152 } },
+  { name: "Vue.js", logo: { src: "/logos/vue.webp", width: 432, height: 152 } },
+  { name: "Docker", logo: { src: "/logos/docker.webp", width: 540, height: 152 } },
+  { name: "AWS", logo: { src: "/logos/aws.webp", width: 256, height: 152 } },
+  { name: "Stripe", logo: { src: "/logos/stripe.webp", width: 364, height: 152 } },
+  { name: "CloudWatch", logo: { src: "/logos/cloudwatch.webp", width: 712, height: 152 } },
 ];

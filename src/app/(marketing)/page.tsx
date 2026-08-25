@@ -19,7 +19,11 @@ export default function HomePage() {
       <MissionSection />
 
       <TestimonialsSection />
-      <AnimatedRunStroke title="Brands Trust Us" items={brands} />
+      <AnimatedRunStroke
+        title="Brands Trust Us"
+        items={brands}
+        itemClassName="h-28"
+      />
       <CasesSection />
       <AiPlanSection />
       <CardGridSection
@@ -42,7 +46,6 @@ export default function HomePage() {
         title="Industries We Serve"
         subtitle="We are committed to developing innovative and powerful mobile solutions to serve:"
         cards={industries}
-        className="pt-0"
         cardClassName="gap-10"
         minCardHeight={390}
       />
