@@ -1,10 +1,12 @@
 import { Accordion } from "@base-ui/react/accordion";
+import { Plus } from "lucide-react";
 
 import { ChevronDownIcon } from "@/components/icons/ui";
 import Container from "@/components/layout/container";
 import { faq } from "@/data/faq";
+import { cn } from "@/lib/utils";
 
-export default function FaqSection() {
+export default function FaqSection({ divided = false }: { divided?: boolean }) {
   return (
     <section className="py-16">
       <Container>
@@ -14,15 +16,26 @@ export default function FaqSection() {
           </h2>
 
           <Accordion.Root
-            defaultValue={[faq[0].id]}
-            className="flex flex-col gap-8"
+            defaultValue={divided ? [] : [faq[0].id]}
+            className={cn(
+              "flex flex-col",
+              divided ? "border-t" : "gap-8"
+            )}
           >
             {faq.map(({ id, question, answer }) => (
-              <Accordion.Item key={id} value={id} className="flex flex-col">
+              <Accordion.Item
+                key={id}
+                value={id}
+                className={cn("flex flex-col", divided && "border-b py-8")}
+              >
                 <Accordion.Header>
                   <Accordion.Trigger className="group focus-visible:outline-ring hover:text-primary flex w-full items-center justify-between gap-6 rounded-md text-left text-xl leading-8 font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4">
                     {question}
-                    <ChevronDownIcon className="size-6 shrink-0 transition-transform duration-200 ease-out group-data-panel-open:rotate-180" />
+                    {divided ? (
+                      <Plus className="size-6 shrink-0 transition-transform duration-200 ease-out group-data-panel-open:rotate-45" />
+                    ) : (
+                      <ChevronDownIcon className="size-6 shrink-0 transition-transform duration-200 ease-out group-data-panel-open:rotate-180" />
+                    )}
                   </Accordion.Trigger>
                 </Accordion.Header>
 
