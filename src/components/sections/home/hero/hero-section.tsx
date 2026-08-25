@@ -45,14 +45,10 @@ export default function HeroSection() {
         </div>
         {/* animation section */}
         <div className="relative mx-auto mt-10 aspect-square w-full max-w-[560px]">
-          <HeroRings />
-          {/*
-           * Мокапи з макета лежать по центру кілець і виступають за їхні
-           * межі: у Figma кільця ~720 завширшки, а фрейм із телефонами —
-           * 1024, тобто 142% від контейнера.
-           */}
+          <HeroRings className="absolute top-[-25%] left-[-25%] size-[150%]" />
+
           <Image
-            src="/hero-phones.webp"
+            src="/hero-phones.png"
             alt="Екрани застосунків Chill Bill, Truth or Dare та Pixy"
             width={1024}
             height={768}
