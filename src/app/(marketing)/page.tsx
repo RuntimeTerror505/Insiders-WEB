@@ -1,4 +1,3 @@
-import AiPlanSection from "@/components/sections/home/ai-plan/ai-plan-section";
 import CasesSection from "@/components/sections/home/cases/cases-section";
 import ContactSection from "@/components/sections/home/contact/contact-section";
 import HeroSection from "@/components/sections/home/hero/hero-section";
@@ -7,10 +6,12 @@ import TestimonialsSection from "@/components/sections/home/testimonials/testimo
 import AnimatedRunStroke from "@/components/sections/shared/animated-run-stroke";
 import BlogSection from "@/components/sections/home/blog/blog-section";
 import CardGridSection from "@/components/sections/shared/card-grid-section";
+import GradientCtaSection from "@/components/sections/shared/gradient-cta-section";
 import { brands } from "@/data/brands";
 import { industries } from "@/data/industries";
 import { partners } from "@/data/partners";
 import { services } from "@/data/services";
+import { headerCta } from "@/lib/navigation";
 
 export default function HomePage() {
   return (
@@ -25,7 +26,12 @@ export default function HomePage() {
         itemClassName="h-16 sm:h-28"
       />
       <CasesSection />
-      <AiPlanSection />
+      <GradientCtaSection
+        title="Get an AI-Built Technical Plan for Your Idea"
+        description="Scope, architecture, cost range and timeline — drafted by our AI pipeline, reviewed and signed off by a senior engineer."
+        action={{ label: "Get My AI Plan", href: headerCta.href }}
+        cardClassName="min-h-[565px]"
+      />
       <CardGridSection
         eyebrow="Grow faster with fantastic changes"
         title="Our Mobile App Development Services"
