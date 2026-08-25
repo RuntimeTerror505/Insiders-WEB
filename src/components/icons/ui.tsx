@@ -26,7 +26,7 @@ export function ChevronDownIcon(props: IconProps) {
 
 /**
  * arrow-right-line (Remix Icon) — геометрія з макета «New Insiders»
- * (нода 1:7453), кнопка «Book a Call».
+ * (нода 1:7453), кнопка «».
  */
 export function ArrowRightIcon(props: IconProps) {
   return (
