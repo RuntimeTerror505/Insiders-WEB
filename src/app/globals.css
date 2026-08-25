@@ -70,6 +70,25 @@
       transform: translateX(-50%);
     }
   }
+
+  /*
+   * Світло, що біжить по рамці картки. Крутимо кут конічного градієнта
+   * через зареєстровану властивість — без @property браузер не вміє
+   * інтерполювати кут і анімація стрибає.
+   */
+  --animate-card-glow: card-glow-spin 2.4s linear infinite;
+
+  @keyframes card-glow-spin {
+    to {
+      --card-glow-angle: 360deg;
+    }
+  }
+}
+
+@property --card-glow-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
 }
 
 @theme inline {
@@ -233,4 +252,27 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17.3846' height='17.3846'%3E%3Crect width='8.6923' height='8.6923' fill='%23fff'/%3E%3C/svg%3E");
   background-size: 17.3846px 17.3846px;
   mask-image: radial-gradient(58% 92% at 0% 100%, #000 0%, transparent 62%);
+}
+
+
+/*
+ * Рамка картки: у спокої суцільна лінія кольору бордера, на ховері —
+ * конічний градієнт із рожевого в білий, який обертається навколо картки.
+ * Друга така ж плашка під розмиттям дає світіння назовні.
+ */
+@utility card-frame {
+  background-color: var(--color-border);
+}
+
+@utility card-frame-glow {
+  background-image: conic-gradient(
+    from var(--card-glow-angle),
+    transparent 0deg,
+    transparent 40deg,
+    var(--color-brand-500) 95deg,
+    #ffffff 130deg,
+    var(--color-brand-400) 165deg,
+    transparent 230deg,
+    transparent 360deg
+  );
 }
