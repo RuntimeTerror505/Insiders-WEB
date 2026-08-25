@@ -18,6 +18,11 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
+        // Макет «New Insiders»: контурна кнопка бренду (AI Plan у хедері).
+        brand:
+          "bg-primary text-primary-foreground hover:bg-brand-600 aria-expanded:bg-brand-600",
+        brandOutline:
+          "border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground aria-expanded:bg-primary aria-expanded:text-primary-foreground",
       },
       size: {
         default:
@@ -31,6 +36,8 @@ const buttonVariants = cva(
         "icon-sm":
           "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
         "icon-lg": "size-9",
+        // 48px висота / 24px горизонтальні падінги / 16px текст — як у макеті.
+        xl: "h-12 gap-1 px-6 text-base leading-6 font-semibold [&_svg:not([class*='size-'])]:size-5",
       },
     },
     defaultVariants: {
