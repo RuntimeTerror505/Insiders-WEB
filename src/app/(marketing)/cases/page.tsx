@@ -1,9 +1,15 @@
-import Container from "@/components/layout/container";
+import CasesCtaSection from "@/components/sections/cases/cta/cases-cta-section";
+import CasesGridSection from "@/components/sections/cases/grid/cases-grid-section";
+import CasesHeroSection from "@/components/sections/cases/hero/cases-hero-section";
+import FaqSection from "@/components/sections/shared/faq-section";
 
 export default function CasesPage() {
   return (
-    <Container className="py-24">
-      <h1 className="text-3xl font-semibold tracking-tight">Cases</h1>
-    </Container>
+    <>
+      <CasesHeroSection />
+      <CasesGridSection />
+      <CasesCtaSection />
+      <FaqSection divided />
+    </>
   );
 }

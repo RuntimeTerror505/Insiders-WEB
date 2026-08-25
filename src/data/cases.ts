@@ -6,6 +6,8 @@ export type CaseStudy = {
   name: string;
   /** Великий рядок картки: «Loyalty & Rewards App» */
   category: string;
+  /** Ключ фільтра на сторінці /cases */
+  industry: string;
   description: string;
   /** Стек — ключі з реєстру techIcons */
   tech: TechName[];
@@ -24,6 +26,7 @@ export const cases: CaseStudy[] = [
     slug: "chill-bill",
     name: "Chill Bill",
     category: "Loyalty & Rewards App",
+    industry: "Retail",
     description:
       "Chill Bill is a mobile app that simplifies the management of restaurant loyalty cards. Users can store their cards digitally, and the app provides updates on discounts from partner restaurants, helping them stay informed about the best deals.",
     tech: ["Flutter", "Node.js", "Postgres", "Firebase"],
@@ -38,6 +41,7 @@ export const cases: CaseStudy[] = [
     slug: "truth-or-dare",
     name: "Truth or Dare",
     category: "Entertainment App",
+    industry: "Entertainment",
     description:
       "Truth or Dare is a mobile app designed for team gameplay. It brings the classic party game to your fingertips, providing a fun and engaging way to challenge each other with daring tasks and revealing questions.",
     tech: ["Flutter", "Node.js", "Socket.IO", "Redis"],
@@ -52,6 +56,7 @@ export const cases: CaseStudy[] = [
     slug: "pixy",
     name: "Pixy",
     category: "Social Networking App",
+    industry: "Social Media",
     description:
       "Pixy is a mobile app for social navigation that helps users structure and enhance their social lives. It provides personalized event and activity recommendations based on user interests, allows users to create their own events, and invite others.",
     tech: ["Flutter", "Python", "Postgres", "PyTorch"],
