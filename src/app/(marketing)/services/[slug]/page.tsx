@@ -1,6 +1,6 @@
 import Container from "@/components/layout/container";
 
-export default async function IndustryPage({ params }: PageProps<"/industries/[slug]">) {
+export default async function ServicePage({ params }: PageProps<"/services/[slug]">) {
   const { slug } = await params;
 
   return (
