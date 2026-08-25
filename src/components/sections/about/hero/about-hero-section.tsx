@@ -16,7 +16,7 @@ export default function AboutHeroSection() {
           <div className="relative w-full">
             <HeroRings className="pointer-events-none absolute top-1/2 left-[16%] aspect-square h-auto w-[76%] max-w-none -translate-x-1/2 -translate-y-1/2" />
             <Image
-              src="/about/hero-collage.webp"
+              src="/about/hero-collage.avif"
               alt="Скриншоти проєктів Insiders і фото команди в роботі"
               width={1052}
               height={569}

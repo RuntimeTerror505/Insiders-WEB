@@ -18,7 +18,7 @@ export default function RemoteCompanySection() {
           </div>
 
           <Image
-            src="/about/world-map.webp"
+            src="/about/world-map.avif"
             alt="Карта світу з командами в Канаді, США, Великій Британії, Польщі, Україні, Ізраїлі, ОАЕ та Австралії"
             width={1200}
             height={675}

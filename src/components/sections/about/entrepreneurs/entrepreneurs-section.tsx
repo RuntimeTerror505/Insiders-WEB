@@ -23,7 +23,7 @@ export default function EntrepreneursSection() {
           </div>
 
           <Image
-            src="/about/entrepreneurs.webp"
+            src="/about/entrepreneurs.avif"
             alt="Команда Insiders на робочій зустрічі"
             width={588}
             height={400}

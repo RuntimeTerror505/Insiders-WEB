@@ -6,19 +6,19 @@ type Shot = { src: string; alt: string; width: number; height: number };
 
 const topRow: Shot[] = [
   {
-    src: "/about/gallery/1.webp",
+    src: "/about/gallery/1.avif",
     alt: "Команда Insiders на воркшопі",
     width: 828,
     height: 549,
   },
   {
-    src: "/about/gallery/2.webp",
+    src: "/about/gallery/2.avif",
     alt: "Робочий процес в офісі",
     width: 682,
     height: 549,
   },
   {
-    src: "/about/gallery/3.webp",
+    src: "/about/gallery/3.avif",
     alt: "Обговорення продукту біля дошки",
     width: 828,
     height: 549,
@@ -27,19 +27,19 @@ const topRow: Shot[] = [
 
 const bottomRow: Shot[] = [
   {
-    src: "/about/gallery/4.webp",
+    src: "/about/gallery/4.avif",
     alt: "Команда на корпоративній зустрічі",
     width: 682,
     height: 549,
   },
   {
-    src: "/about/gallery/5.webp",
+    src: "/about/gallery/5.avif",
     alt: "Спільне фото команди Insiders",
     width: 972,
     height: 549,
   },
   {
-    src: "/about/gallery/6.webp",
+    src: "/about/gallery/6.avif",
     alt: "Робочі будні розробників",
     width: 682,
     height: 549,

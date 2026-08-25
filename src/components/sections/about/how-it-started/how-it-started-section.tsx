@@ -65,7 +65,7 @@ export default function HowItStartedSection() {
           </div>
 
           <Image
-            src="/about/how-it-started.webp"
+            src="/about/how-it-started.avif"
             alt="Команда Insiders за роботою в офісі"
             width={588}
             height={528}
