@@ -21,7 +21,7 @@ const techStack = [
 
 export default function HeroSection() {
   return (
-    <section className="pt-10 pb-20">
+    <section className="overflow-x-clip pt-10 pb-20">
       <Container>
         <div className="mx-auto flex max-w-[1052px] flex-col items-center justify-center gap-10">
           <h1 className="text-center text-[clamp(2rem,6.2vw,5.5rem)] leading-[1.2] font-bold text-balance capitalize">
@@ -37,7 +37,7 @@ export default function HeroSection() {
             nativeButton={false}
             variant="brand"
             size="xl"
-            className="shadow-button text-primary-foreground/85 h-[52px]"
+            className="shadow-button text-primary-foreground/85 h-[52px] z-10"
           >
             Book a Call
             <ArrowRightIcon className="size-6" />
@@ -45,7 +45,7 @@ export default function HeroSection() {
         </div>
         {/* animation section */}
         <div className="relative mx-auto mt-10 aspect-square w-full max-w-[560px]">
-          <HeroRings className="absolute top-[-25%] left-[-25%] size-[150%]" />
+          <HeroRings className="absolute top-[-10%] left-[-10%] size-[120%] sm:top-[-25%] sm:left-[-25%] sm:size-[150%]" />
 
           <Image
             src="/hero-phones.png"

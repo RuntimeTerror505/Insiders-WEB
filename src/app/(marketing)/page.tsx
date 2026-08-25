@@ -22,7 +22,7 @@ export default function HomePage() {
       <AnimatedRunStroke
         title="Brands Trust Us"
         items={brands}
-        itemClassName="h-28"
+        itemClassName="h-16 sm:h-28"
       />
       <CasesSection />
       <AiPlanSection />
@@ -41,6 +41,7 @@ export default function HomePage() {
           </>
         }
         items={partners}
+        itemClassName="h-9 sm:h-12"
       />
       <CardGridSection
         title="Industries We Serve"

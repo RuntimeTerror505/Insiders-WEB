@@ -18,7 +18,7 @@ export default function Footer() {
           <div className="flex flex-wrap items-center justify-between gap-6">
             <Logo imageClassName="lg:h-16" />
 
-            <ul className="flex list-none items-center gap-6">
+            <ul className="flex list-none flex-wrap items-center gap-3 sm:gap-6">
               {socials.map(({ label, href, icon: Icon }) => (
                 <li key={label}>
                   <a

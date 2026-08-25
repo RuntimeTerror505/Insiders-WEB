@@ -1,4 +1,4 @@
-import type { ComponentProps, ComponentType } from "react";
+import type { ComponentProps, ComponentType, CSSProperties } from "react";
 import Link from "next/link";
 
 import { ArrowRightIcon } from "@/components/icons/ui";
@@ -68,10 +68,15 @@ export default function CardGridSection({
                 key={id}
                 className={cn(
                   "bg-surface flex flex-col gap-6 rounded-xl border p-6 shadow-[0_2px_8px_rgb(51_1_46_/_0.05)]",
+                  minCardHeight && "lg:min-h-(--min-card-height)",
                   cardClassName
                 )}
                 style={
-                  minCardHeight ? { minHeight: minCardHeight } : undefined
+                  minCardHeight
+                    ? ({
+                        "--min-card-height": `${minCardHeight}px`,
+                      } as CSSProperties)
+                    : undefined
                 }
               >
                 <div className="flex min-h-14 items-center gap-5">
