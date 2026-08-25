@@ -5,7 +5,7 @@ export type Post = {
   /** Дата публікації в ISO — форматуємо на рендері */
   date: string;
   readingTime: string;
-  /** Обкладинка з public/. Поки файлу нема — рендериться плейсхолдер */
+  /** Обкладинка з public/. Без неї рендериться плейсхолдер */
   image?: string;
 };
 
@@ -17,6 +17,7 @@ export const posts: Post[] = [
     title: "The complete guide to cross-platform mobile programming in 2026",
     date: "2025-04-24",
     readingTime: "12 min",
+    image: "/blog/cross-platform-mobile-programming-2026.webp",
   },
   {
     slug: "cross-platform-mobile-app-development-2026",
@@ -24,6 +25,7 @@ export const posts: Post[] = [
     title: "The complete guide to cross-platform mobile app development in 2026",
     date: "2025-04-24",
     readingTime: "12 min",
+    image: "/blog/cross-platform-mobile-app-development-2026.webp",
   },
   {
     slug: "choosing-a-mobile-app-programming-company-2026",
@@ -31,5 +33,6 @@ export const posts: Post[] = [
     title: "Your ultimate guide to choosing a mobile app programming company in 2026",
     date: "2025-04-24",
     readingTime: "12 min",
+    image: "/blog/choosing-a-mobile-app-programming-company-2026.webp",
   },
 ];
