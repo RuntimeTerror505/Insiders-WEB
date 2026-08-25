@@ -1,0 +1,10 @@
+import Container from "@/components/layout/container";
+
+export default function JobsPage() {
+
+  return (
+    <Container className="py-24">
+      <h1 className="text-3xl font-semibold tracking-tight">Jobs</h1>
+    </Container>
+  );
+}
