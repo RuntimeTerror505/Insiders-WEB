@@ -2,6 +2,9 @@ import {
   FacebookIcon,
   InstagramIcon,
   LinkedInIcon,
+  ThreadsIcon,
+  TikTokIcon,
+  XIcon,
 } from "@/components/icons/social";
 
 export const siteConfig = {
@@ -13,7 +16,7 @@ export const siteConfig = {
     email: "info@insiders_software.com",
     phone: "+1 906 629 1070",
   },
-  // TODO: у макеті шість іконок — бракує X, Threads і TikTok
+  // Порядок — як у футері макета
   socials: [
     {
       label: "Instagram",
@@ -21,7 +24,10 @@ export const siteConfig = {
       icon: InstagramIcon,
     },
     { label: "LinkedIn", href: "https://www.linkedin.com/", icon: LinkedInIcon },
+    { label: "X", href: "https://x.com/", icon: XIcon },
     { label: "Facebook", href: "https://www.facebook.com/", icon: FacebookIcon },
+    { label: "Threads", href: "https://www.threads.com/", icon: ThreadsIcon },
+    { label: "TikTok", href: "https://www.tiktok.com/", icon: TikTokIcon },
   ],
   legal: [{ label: "Privacy Policy", href: "/privacy-policy" }],
 } as const;
