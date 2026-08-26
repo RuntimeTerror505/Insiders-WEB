@@ -6,7 +6,7 @@ import HeroRings from "@/components/sections/home/hero/hero-rings";
 import { Button } from "@/components/ui/button";
 import { emailHref } from "@/lib/site";
 
-export default function CasesCtaSection() {
+export default function StartBuildingCtaSection() {
   return (
     <section className="relative overflow-x-clip py-24">
       <HeroRings className="pointer-events-none absolute top-1/2 left-0 aspect-square h-auto w-[46%] max-w-none -translate-x-2/3 -translate-y-1/2 opacity-30" />
