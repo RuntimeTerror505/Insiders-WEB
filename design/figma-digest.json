@@ -1,0 +1,180 @@
+{
+  "_note": "Витяг із Figma «New Insiders», щоб не витрачати ліміт MCP на повторні запити. Оновлювати лише коли дизайн змінився.",
+  "fileKey": "chOTkV2VURgGT68ZTHd7Th",
+  "url": "https://www.figma.com/design/chOTkV2VURgGT68ZTHd7Th/New-Insiders?node-id=1-7189",
+  "canvas": { "id": "1:7189", "name": "Design" },
+  "readAt": "2026-08-26",
+  "artboards": {
+    "home": { "id": "1:7190", "name": "Home Page", "size": [1440, 10216] },
+    "about": { "id": "213:2447", "name": "About Us", "size": [1440, 7765] },
+    "cases": { "id": "271:3653", "name": "Cases", "size": [1440, 5782] }
+  },
+  "screenshots": {
+    "cases": "design/figma-cases.png"
+  },
+  "cases": {
+    "sections": [
+      { "id": "271:6706", "name": "Header", "at": [0, 0], "size": [1440, 80] },
+      {
+        "id": "271:6825",
+        "name": "Hero",
+        "at": [120, 120],
+        "size": [1200, 500],
+        "parts": {
+          "text": { "id": "271:3682", "at": [0, 58], "size": [588, 384] },
+          "media": { "id": "271:6830", "at": [612, 0], "size": [588, 500] }
+        },
+        "copy": {
+          "titleLine1": "Insiders",
+          "titleLine2": "Cases",
+          "subtitle": "Talent doesn't have borders. No matter where your market is, we've got the coverage",
+          "button": "Hire Experts"
+        },
+        "type": {
+          "title": "365x212 — два рядки по 106, тобто ~88px/1.2",
+          "subtitle": "588x64 — два рядки по 32, ~20px"
+        }
+      },
+      {
+        "id": "271:7403",
+        "name": "Cases list",
+        "at": [120, 740],
+        "size": [1200, 3251],
+        "parts": {
+          "heading": { "id": "271:3655", "size": [1200, 161] },
+          "grid": { "id": "271:7402", "at": [0, 201], "size": [1200, 3050] }
+        },
+        "copy": {
+          "heading": "We Put The PRO In Projects",
+          "accentWord": "PRO",
+          "filters": [
+            "All Cases",
+            "Travel",
+            "Information Security",
+            "Farmtech",
+            "Generative AI",
+            "Loyalty",
+            "Mobile Games",
+            "Utilitytech",
+            "Socialtech"
+          ]
+        },
+        "card": {
+          "columns": 2,
+          "columnWidth": 580,
+          "gap": 40,
+          "anatomy": "скрін у ноутбуці зверху -> рядок (кругле лого 48 + назва ~32px) і чип індустрії праворуч -> тонка лінія -> заголовок UPPERCASE ~24px bold -> опис 16px/24, 4 рядки",
+          "chip": { "bg": "#deecfb", "text": "#2b5cca" }
+        }
+      },
+      {
+        "id": "289:7727",
+        "name": "CTA",
+        "at": [385.5, 4111],
+        "size": [669, 314],
+        "decor": { "id": "289:7751", "at": [-483, 3955], "size": [965, 483], "note": "стрічки, що виходять за лівий край" },
+        "copy": {
+          "line1": "Start Building",
+          "line2": "New Stunning Apps",
+          "underlined": "Stunning",
+          "subtitle": "Let's Get to Work",
+          "button": "Speack To Us — очевидна одруківка в макеті, у коді Speak to Us"
+        }
+      },
+      {
+        "id": "271:3713",
+        "name": "FAQ",
+        "at": [120, 4545],
+        "size": [1200, 864],
+        "style": "шеврон праворуч, без роздільників, перший пункт розгорнутий — тобто дефолтний варіант shared/faq-section"
+      },
+      { "id": "271:3746", "name": "Footer", "at": [0, 5529], "size": [1440, 253] }
+    ],
+    "items": [
+      {
+        "slug": "atlys",
+        "name": "Atlys",
+        "industry": "Travel",
+        "title": "Travel & Visa Automation Platform",
+        "description": "Atlys is a digital platform that streamlines visa applications. Scan documents, choose dates, and submit requests in just a few clicks. By removing paperwork and long wait times, it ensures a seamless experience for travelers."
+      },
+      {
+        "slug": "sxipher-ai",
+        "name": "Sxipher.ai",
+        "industry": "Information Security",
+        "title": "Cyber Security Platform",
+        "titleNote": "у макеті одруківка «Sucurity»",
+        "description": "Sxipher.ai provides advanced penetration testing and security assessments to address digital vulnerabilities. The platform protects infrastructures through custom security evaluations and risk mitigation strategies."
+      },
+      {
+        "slug": "biosecurity",
+        "name": "Biosecurity",
+        "industry": "Farmtech",
+        "title": "Agritech Management Platform",
+        "description": "This platform enhances biosecurity with real-time farm data on performance and health for informed decisions. It streamlines supply ordering, training, and testing—accessible on mobile and desktop for efficient management.",
+        "source": "тексти зчитані зі скріншота — у метаданих ця картка приходить згорнутим інстансом"
+      },
+      {
+        "slug": "oasis",
+        "name": "Oasis",
+        "industry": "Generative AI",
+        "title": "AI Content Generation Platform",
+        "description": "Oasis is an innovative platform where subscribers can generate detailed images from text descriptions using advanced machine learning technology. Users leverage this cutting-edge AI to create visual content, earning cryptocurrency coins for their contributions."
+      },
+      {
+        "slug": "goods2load",
+        "name": "Goods2load",
+        "industry": "Logistics",
+        "title": "Logistics & Supply Chain Platform",
+        "description": "Goods2load is a platform designed to streamline shipping for companies, offering a fast and cost-effective solution. It connects businesses with reliable shipping services, optimizing logistics to ensure efficient transportation of goods."
+      },
+      {
+        "slug": "electricitywizard",
+        "name": "Electricitywizard",
+        "industry": "Utilitytech",
+        "title": "Energy Management Platform",
+        "description": "Electricitywizard helps navigate the energy market, providing tips to reduce electricity costs. Users can learn how to cut electricity usage, control their bills, compare providers, and check if they are overspending on annual electricity expenses."
+      },
+      {
+        "slug": "chill-bill",
+        "name": "Chill Bill",
+        "industry": "Loyalty",
+        "title": "Loyalty & Reward App",
+        "featured": true,
+        "description": "Chill Bill is a mobile app that simplifies the management of restaurant loyalty cards. Users can store their cards digitally, and the app provides updates on discounts from partner restaurants, helping them stay informed about the best deals."
+      },
+      {
+        "slug": "truth-or-dare",
+        "name": "Truth or Dare",
+        "industry": "Mobile Games",
+        "title": "Entertainment App",
+        "titleNote": "у макеті в цю картку помилково скопійовано «Energy management platform»",
+        "featured": true,
+        "description": "Truth or Dare is a mobile app designed for team gameplay. It brings the classic party game to your fingertips, providing a fun and engaging way to challenge each other with daring tasks and revealing questions."
+      },
+      {
+        "slug": "pixy",
+        "name": "Pixy",
+        "industry": "Socialtech",
+        "title": "Social Network App",
+        "featured": true,
+        "description": "Pixy is a mobile app for social navigation that helps users structure and enhance their social lives. It provides personalized event and activity recommendations based on user interests, allows users to create their own events, and invite others."
+      }
+    ],
+    "faq": [
+      {
+        "question": "How long does it take to develop a mobile app MVP?",
+        "answer": "Most MVPs take 6–10 weeks from idea to launch. Here's the usual breakdown:\n\n1) Discovery phase – 1 week\n2) UX/UI design – 2–3 weeks\n3) Development – 3–6 weeks\n4) QA and release – 1 week\n\nComplex apps (multi-role access, AI features, integrations) may take 12–16 weeks. We always provide a realistic timeline and team estimate based on your scope"
+      },
+      { "question": "Can I start app development if I only have an idea?", "answer": "placeholder" },
+      { "question": "Do you work with niche industries like healthcare, industrial tech, or education?", "answer": "placeholder" },
+      { "question": "Are your case studies based on real mobile app development projects?", "answer": "placeholder" },
+      { "question": "Will I get the same level of involvement as in your case studies?", "answer": "placeholder" },
+      { "question": "What's your mobile app development process like?", "answer": "placeholder" },
+      { "question": "What does your mobile app development team look like?", "answer": "placeholder" },
+      { "question": "How do you choose the best tech stack for my mobile app?", "answer": "placeholder" },
+      { "question": "How much does it cost to develop a mobile app with your team?", "answer": "placeholder" }
+    ],
+    "placeholderAnswer": "A custom software development company builds apps specifically for your business workflows—no unnecessary features, no forced workarounds. For example, we automated an insurance startup's claims process, reducing client waiting times from 7 days down to 48 hours."
+  }
+}
