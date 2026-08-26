@@ -81,12 +81,15 @@ export default function CardGridSection({
                   >
                     <span
                       aria-hidden
-                      className="card-frame group-hover:card-frame-glow group-hover:animate-card-glow absolute inset-0 rounded-xl"
+                      className="bg-border absolute inset-0 rounded-xl"
                     />
                     <span
                       aria-hidden
-                      className="card-frame-glow group-hover:animate-card-glow absolute inset-0 rounded-xl opacity-0 blur-lg transition-opacity duration-300 group-hover:opacity-70 motion-reduce:hidden"
-                    />
+                      className="group-hover:animate-card-shimmer absolute inset-0 opacity-0 motion-reduce:hidden"
+                    >
+                      <span className="bg-primary absolute inset-0 rounded-xl" />
+                      <span className="bg-primary absolute inset-0 rounded-xl opacity-25 blur-lg" />
+                    </span>
 
                     <div
                       className={cn(
