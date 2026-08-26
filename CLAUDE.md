@@ -22,6 +22,8 @@ const ref = React.useRef<HTMLDivElement>(null);
 type IconProps = React.ComponentProps<"svg">;
 ```
 
+Потрібно притримуватись SEO оптимізації, щоб у майбутньому у нас був сайт з хорорим для пошуком для роботів Google
+
 Правило однакове для хуків (`useState`, `useEffect`, `useCallback`, `useMemo`,
 `useRef`, `useContext`, `createContext`) і для типів (`ComponentProps`,
 `ComponentType`, `CSSProperties`, `KeyboardEvent`, `ReactNode`).
