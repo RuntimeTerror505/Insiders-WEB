@@ -3,10 +3,16 @@ import { Plus } from "lucide-react";
 
 import { ChevronDownIcon } from "@/components/icons/ui";
 import Container from "@/components/layout/container";
-import { faq } from "@/data/faq";
+import { faq, type FaqItem } from "@/data/faq";
 import { cn } from "@/lib/utils";
 
-export default function FaqSection({ divided = false }: { divided?: boolean }) {
+export default function FaqSection({
+  items = faq,
+  divided = false,
+}: {
+  items?: FaqItem[];
+  divided?: boolean;
+}) {
   return (
     <section className="py-16">
       <Container>
@@ -16,13 +22,13 @@ export default function FaqSection({ divided = false }: { divided?: boolean }) {
           </h2>
 
           <Accordion.Root
-            defaultValue={divided ? [] : [faq[0].id]}
+            defaultValue={divided ? [] : [items[0].id]}
             className={cn(
               "flex flex-col",
               divided ? "border-t" : "gap-8"
             )}
           >
-            {faq.map(({ id, question, answer }) => (
+            {items.map(({ id, question, answer }) => (
               <Accordion.Item
                 key={id}
                 value={id}

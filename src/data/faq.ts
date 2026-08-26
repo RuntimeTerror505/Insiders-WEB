@@ -41,3 +41,53 @@ export const faq: FaqItem[] = [
     answer: placeholderAnswer,
   },
 ];
+
+// FAQ з артборда Cases — питання про розробку застосунків.
+export const casesFaq: FaqItem[] = [
+  {
+    id: "mvp-timeline",
+    question: "How long does it take to develop a mobile app MVP?",
+    answer:
+      "Most MVPs take 6–10 weeks from idea to launch. Here's the usual breakdown: 1) Discovery phase – 1 week. 2) UX/UI design – 2–3 weeks. 3) Development – 3–6 weeks. 4) QA and release – 1 week. Complex apps (multi-role access, AI features, integrations) may take 12–16 weeks. We always provide a realistic timeline and team estimate based on your scope.",
+  },
+  {
+    id: "only-an-idea",
+    question: "Can I start app development if I only have an idea?",
+    answer: placeholderAnswer,
+  },
+  {
+    id: "niche-industries",
+    question: "Do you work with niche industries like healthcare, industrial tech, or education?",
+    answer: placeholderAnswer,
+  },
+  {
+    id: "real-projects",
+    question: "Are your case studies based on real mobile app development projects?",
+    answer: placeholderAnswer,
+  },
+  {
+    id: "involvement",
+    question: "Will I get the same level of involvement as in your case studies?",
+    answer: placeholderAnswer,
+  },
+  {
+    id: "process",
+    question: "What's your mobile app development process like?",
+    answer: placeholderAnswer,
+  },
+  {
+    id: "team",
+    question: "What does your mobile app development team look like?",
+    answer: placeholderAnswer,
+  },
+  {
+    id: "tech-stack",
+    question: "How do you choose the best tech stack for my mobile app?",
+    answer: placeholderAnswer,
+  },
+  {
+    id: "cost",
+    question: "How much does it cost to develop a mobile app with your team?",
+    answer: placeholderAnswer,
+  },
+];

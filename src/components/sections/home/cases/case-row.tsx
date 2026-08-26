@@ -83,14 +83,16 @@ export default function CaseRow({
           <div className="flex flex-col gap-4">
             <p className="text-lg leading-8">{description}</p>
 
-            <ul className="flex list-none flex-wrap items-center gap-x-6 gap-y-3">
-              {tech.map((item) => (
-                <li key={item} className="flex items-center gap-2">
-                  <TechIcon name={item} className="size-13 shrink-0" />
-                  <span className="text-lg leading-8">{item}</span>
-                </li>
-              ))}
-            </ul>
+            {tech && (
+              <ul className="flex list-none flex-wrap items-center gap-x-6 gap-y-3">
+                {tech.map((item) => (
+                  <li key={item} className="flex items-center gap-2">
+                    <TechIcon name={item} className="size-13 shrink-0" />
+                    <span className="text-lg leading-8">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </div>
 

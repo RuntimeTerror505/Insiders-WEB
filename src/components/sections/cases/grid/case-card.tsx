@@ -4,40 +4,61 @@ import Link from "next/link";
 import type { CaseStudy } from "@/data/cases";
 
 export default function CaseCard({ caseStudy }: { caseStudy: CaseStudy }) {
-  const { slug, name, category, industry, description, image } = caseStudy;
+  const { slug, name, category, industry, description, cover, logo } = caseStudy;
 
   return (
     <Link
       href={`/cases/${slug}`}
-      className="from-brand-50 focus-visible:outline-ring group flex h-full flex-col overflow-hidden rounded-2xl border bg-linear-to-br to-white no-underline transition-shadow hover:shadow-[0_12px_40px_-12px_rgb(51_1_46_/_0.18)] focus-visible:outline-2 focus-visible:outline-offset-4 sm:flex-row lg:min-h-[420px]"
+      className="group focus-visible:outline-ring flex h-full flex-col gap-6 no-underline focus-visible:outline-2 focus-visible:outline-offset-4"
     >
-      <div className="flex flex-1 flex-col gap-4 p-8">
-        <span className="bg-secondary text-secondary-foreground w-fit rounded-md px-3 py-1 text-sm leading-6 font-bold tracking-[0.5px] uppercase">
-          {industry}
-        </span>
-
-        <p className="text-lg leading-7">{name}</p>
-
-        <h3 className="group-hover:text-primary text-2xl leading-8 font-bold transition-colors">
-          {category}
-        </h3>
-
-        <p className="text-muted-foreground line-clamp-6 text-base leading-6">
-          {description}
-        </p>
+      <div className="relative aspect-[580/330] rounded-lg">
+        {cover && (
+          <Image
+            src={cover.src}
+            alt={cover.alt}
+            fill
+            sizes="(min-width: 1024px) 580px, 100vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+          />
+        )}
       </div>
 
-      {image && (
-        <div className="relative h-64 shrink-0 sm:h-auto sm:w-[45%]">
-          <Image
-            src={image.src}
-            alt={image.alt}
-            fill
-            sizes="(min-width: 1024px) 270px, 100vw"
-            className="object-contain object-bottom sm:object-right-bottom"
-          />
+      <div className="flex flex-col gap-4">
+        <div className="flex items-center justify-between gap-4 border-b pb-4">
+          <div className="flex min-w-0 items-center gap-3">
+            <span className="grid size-12 shrink-0 place-items-center rounded-full border p-2">
+              {logo ? (
+                <Image
+                  src={logo}
+                  alt=""
+                  width={96}
+                  height={96}
+                  sizes="32px"
+                  className="size-full object-contain"
+                />
+              ) : (
+                <span
+                  aria-hidden
+                  className="text-muted-foreground text-sm font-bold"
+                >
+                  {name.slice(0, 2).toUpperCase()}
+                </span>
+              )}
+            </span>
+            <p className="group-hover:text-primary truncate text-2xl leading-10 transition-colors">
+              {name}
+            </p>
+          </div>
+
+          <span className="shrink-0 rounded-md bg-[#deecfb] px-3 py-1 text-sm leading-6 font-medium tracking-[0.5px] text-[#2b5cca] uppercase">
+            {industry}
+          </span>
         </div>
-      )}
+
+        <h3 className="text-2xl leading-8 font-bold uppercase">{category}</h3>
+
+        <p className="text-base leading-6">{description}</p>
+      </div>
     </Link>
   );
 }

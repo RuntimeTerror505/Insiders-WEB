@@ -30,7 +30,7 @@ export default function CasesGridSection() {
           <h2 className="text-[clamp(1.75rem,3.6vw,3rem)] leading-[1.2] font-bold capitalize">
             We Put The
             <span className="block">
-              <span className="text-primary">Senior</span> In Projects
+              <span className="text-primary">PRO</span> In Projects
             </span>
           </h2>
 
@@ -45,7 +45,7 @@ export default function CasesGridSection() {
                     className={cn(
                       "focus-visible:outline-ring rounded-md text-base leading-6 transition-colors focus-visible:outline-2 focus-visible:outline-offset-4",
                       filter === active
-                        ? "text-foreground font-bold"
+                        ? "text-primary font-bold"
                         : "text-muted-foreground hover:text-foreground"
                     )}
                   >
@@ -56,9 +56,9 @@ export default function CasesGridSection() {
             </ul>
           </div>
 
-          <ul className="grid list-none gap-6 lg:grid-cols-2">
+          <ul className="grid list-none gap-x-10 gap-y-16 lg:grid-cols-2">
             {visible.map((caseStudy) => (
-              <li key={caseStudy.slug}>
+              <li key={caseStudy.slug} className="min-w-0">
                 <CaseCard caseStudy={caseStudy} />
               </li>
             ))}

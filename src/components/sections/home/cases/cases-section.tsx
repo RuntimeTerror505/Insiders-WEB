@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import Container from "@/components/layout/container";
 import CaseRow from "./case-row";
 import { Button } from "@/components/ui/button";
-import { cases } from "@/data/cases";
+import { featuredCases } from "@/data/cases";
 
 export default function CasesSection() {
   return (
@@ -17,7 +17,7 @@ export default function CasesSection() {
           </h2>
 
           <ul className="flex w-full list-none flex-col gap-10">
-            {cases.map((caseStudy, index) => (
+            {featuredCases.map((caseStudy, index) => (
               <li key={caseStudy.slug}>
                 {/* парні — текст ліворуч, непарні — фото ліворуч */}
                 <CaseRow caseStudy={caseStudy} reversed={index % 2 === 1} />

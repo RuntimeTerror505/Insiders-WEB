@@ -12,14 +12,14 @@ export default function CasesHeroSection() {
       <Container>
         <div className="mx-auto grid max-w-[1200px] items-center gap-10 lg:grid-cols-2 lg:gap-6">
           <div className="flex flex-col items-start gap-8">
-            <h1 className="text-[clamp(2.5rem,5.5vw,5rem)] leading-[1.1] font-bold capitalize">
+            <h1 className="text-[clamp(2.5rem,6.1vw,5.5rem)] leading-[1.1] font-bold capitalize">
               Insiders
               <span className="text-primary block">Cases</span>
             </h1>
 
             <p className="text-muted-foreground max-w-[520px] text-lg leading-8">
-              Bringing ideas to life with cutting-edge technology: an
-              exploration of our featured case studies
+              Talent doesn&apos;t have borders. No matter where your market
+              is, we&apos;ve got the coverage
             </p>
 
             <Button
@@ -46,7 +46,7 @@ export default function CasesHeroSection() {
               height={768}
               priority
               sizes="(min-width: 1024px) 520px, 100vw"
-              className="absolute top-1/2 left-49 w-[112%] max-w-none -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-1/2 left-1/2 w-[112%] max-w-none -translate-x-1/2 -translate-y-1/2"
             />
           </div>
         </div>
