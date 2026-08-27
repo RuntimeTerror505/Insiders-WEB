@@ -46,7 +46,7 @@ export default function CasesHeroSection() {
               height={768}
               priority
               sizes="(min-width: 1024px) 520px, 100vw"
-              className="absolute top-1/2 left-1/2 w-[112%] max-w-none -translate-x-1/2 -translate-y-1/2"
+              className="absolute top-1/2 left-35 sm:left-50 w-[112%] max-w-none -translate-x-1/2 -translate-y-1/2"
             />
           </div>
         </div>
