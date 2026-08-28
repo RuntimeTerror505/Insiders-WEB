@@ -7,10 +7,12 @@
   "artboards": {
     "home": { "id": "1:7190", "name": "Home Page", "size": [1440, 10216] },
     "about": { "id": "213:2447", "name": "About Us", "size": [1440, 7765] },
-    "cases": { "id": "271:3653", "name": "Cases", "size": [1440, 5782] }
+    "cases": { "id": "271:3653", "name": "Cases", "size": [1440, 5782] },
+    "jobs": { "id": "325:1174", "name": "Jobs", "size": [1440, 2877] }
   },
   "screenshots": {
-    "cases": "design/figma-cases.png"
+    "cases": "design/figma-cases.png",
+    "jobs": "design/figma-jobs.png"
   },
   "cases": {
     "sections": [
@@ -176,5 +178,76 @@
       { "question": "How much does it cost to develop a mobile app with your team?", "answer": "placeholder" }
     ],
     "placeholderAnswer": "A custom software development company builds apps specifically for your business workflows—no unnecessary features, no forced workarounds. For example, we automated an insurance startup's claims process, reducing client waiting times from 7 days down to 48 hours."
+  },
+  "jobs": {
+    "sections": [
+      { "id": "325:1397", "name": "Header", "at": [0, 0], "size": [1440, 80] },
+      {
+        "id": "325:1178",
+        "name": "Hero",
+        "at": [120, 120],
+        "size": [1200, 212],
+        "decor": { "id": "326:1737", "at": [616, -126], "size": [1440, 720], "note": "кільця праворуч угорі — у коді HeroRings" },
+        "copy": { "titleLine1": "Open Position At", "titleLine2": "Insiders" },
+        "type": { "title": "88px bold, leading 1.2, по центру; другий рядок brand-500" }
+      },
+      {
+        "id": "326:1739",
+        "name": "Interview stages",
+        "at": [0, 372],
+        "size": [1440, 572],
+        "card": {
+          "id": "326:1740",
+          "at": [120, 64],
+          "size": [1200, 444],
+          "radius": 12,
+          "fill": "linear-gradient(180deg, #e535cb 0%, #42023c 144.07%)",
+          "layers": "Intersect 444×444 (сітка квадратів) біля лівого краю → два розмиті еліпси, #1874F6 у лівому верху і #FF7182 у правому низу → шум у soft-light",
+          "content": { "width": 996, "gap": 40 }
+        },
+        "copy": {
+          "heading": "Be Ready With 3 Saged Interview — одруківка в макеті, у коді Staged",
+          "subtitle": "We evaluate technical skills, problem-solving abilities, and cultural fit to ensure that we hire the most qualified and compatible individuals for our team.",
+          "stages": [
+            { "title": "Primary", "description": "We assess a candidate's suitability for the position at hand" },
+            { "title": "Tech", "description": "We assess tech proficiency, including strengths and weaknesses" },
+            { "title": "Talanet", "titleNote": "одруківка в макеті, у коді Talent", "description": "We assess a candidate's compatibility with the existing team." }
+          ]
+        },
+        "type": { "heading": "32/40 medium", "subtitle": "20/28 #eaeff4", "stageTitle": "32/40 bold", "stageText": "16/24" }
+      },
+      {
+        "id": "330:1784",
+        "name": "Openings",
+        "at": [120, 1008],
+        "size": [1200, 1148],
+        "anatomy": "акордеон без заголовка секції; рядок — назва 24/32 bold capitalize ліворуч і іконка 32px праворуч (add-line / subtract-line з Remix Icon), знизу лінія #e0e3e6; перший пункт розгорнутий",
+        "panel": {
+          "width": 996,
+          "blocks": ["Responsibilities:", "Requirements:", "We Offer:", "Contact Info:"],
+          "type": { "blockTitle": "20/28 semibold #000", "item": "16/32 #545659, маркер — дефіс" }
+        },
+        "items": [
+          "Senior Golang Developer (Outstaff)",
+          "Middle Flutter Developer",
+          "Roku Engineer (Outstaff)",
+          "Senior Data Engineer (Outstaff)",
+          "Senior Business Analyst"
+        ],
+        "note": "текст заповнений лише в Golang; у решти пунктів у макеті лежить прихований плейсхолдер"
+      },
+      {
+        "id": "331:1863",
+        "name": "CTA",
+        "at": [222, 2276],
+        "size": [996, 228],
+        "decor": { "id": "325:1175", "at": [-483, 1984], "size": [965, 483], "note": "кільця з-за лівого краю — у коді HeroRings" },
+        "style": "рамка 2px #e535cb, radius 12, padding 64, gap 40",
+        "copy": { "title": "Contact Us To Proceed To The Next Stage", "button": "Next Step" },
+        "type": { "title": "40/48 semibold capitalize", "button": "52px висота, 16/24 semibold" }
+      },
+      { "id": "325:1235", "name": "Footer", "at": [0, 2624], "size": [1440, 253] }
+    ],
+    "contact": { "email": "info@insiders_software.com", "telegram": "@rinapina_insiders" }
   }
 }

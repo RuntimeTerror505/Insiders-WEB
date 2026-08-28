@@ -15,6 +15,8 @@ export const siteConfig = {
     address: "340S Lemon Ave, Walnut, California, 91789",
     email: "info@insiders_software.com",
     phone: "+1 906 629 1070",
+    // Контакт рекрутера з блоку «Contact Info» на сторінці Jobs.
+    telegram: "@rinapina_insiders",
   },
   // Порядок — як у футері макета
   socials: [
@@ -34,3 +36,4 @@ export const siteConfig = {
 
 export const phoneHref = `tel:${siteConfig.contacts.phone.replace(/[^\d+]/g, "")}`;
 export const emailHref = `mailto:${siteConfig.contacts.email}`;
+export const telegramHref = `https://t.me/${siteConfig.contacts.telegram.replace(/^@/, "")}`;

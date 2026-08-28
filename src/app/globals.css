@@ -157,6 +157,8 @@
   /* Поверхня хедера з макета: білий 85% + backdrop-blur 4px. */
   --header: rgb(255 255 255 / 0.85);
   --radius: 0.75rem; /* 12px — радіус кнопок у макеті */
+  /* Плитка сітки квадратів із макета — спільна для bg-dots-grid і bg-cta-dots. */
+  --image-dots-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17.3846' height='17.3846'%3E%3Crect width='8.6923' height='8.6923' fill='%23fff'/%3E%3C/svg%3E");
   --sidebar: #ffffff;
   --sidebar-foreground: #000000;
   --sidebar-primary: var(--color-brand-500);
@@ -238,14 +240,49 @@
 
 /*
  * Сітка квадратів 8.69px із кроком 17.38px — геометрія вектора Intersect
- * із того ж банера. Тримаємо тайлом, бо сам вектор з Figma важить 355 КБ:
- * це 1089 окремих прямокутників. У макеті сітку зверху перекриває
- * розмитий еліпс, тому маска лишає її сильною тільки внизу ліворуч.
+ * із банерів макета. Тримаємо тайлом, бо сам вектор з Figma важить 355 КБ:
+ * це 1089 окремих прямокутників. Саму плитку тримаємо в змінній: її ділять
+ * CTA головної і банер співбесіди на Jobs, а маски в них різні.
+ */
+@utility bg-dots-grid {
+  background-image: var(--image-dots-grid);
+  background-size: 17.3846px 17.3846px;
+}
+
+/*
+ * У CTA головної сітку зверху перекриває розмитий еліпс, тому маска лишає
+ * її сильною тільки внизу ліворуч.
  */
 @utility bg-cta-dots {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='17.3846' height='17.3846'%3E%3Crect width='8.6923' height='8.6923' fill='%23fff'/%3E%3C/svg%3E");
+  background-image: var(--image-dots-grid);
   background-size: 17.3846px 17.3846px;
   mask-image: radial-gradient(58% 92% at 0% 100%, #000 0%, transparent 62%);
+}
+
+/*
+ * Підкладка банера «3 етапи співбесіди» зі сторінки Jobs (нода 326:1740).
+ * Стос той самий, що й у CTA головної, але базовий градієнт вертикальний —
+ * від brand-500 до темного пурпуру, — а еліпси стоять інакше: синій
+ * #1874F6 накриває лівий верх, теплий #FF7182 світиться в правому низу.
+ */
+@utility bg-interview-gradient {
+  background-image:
+    radial-gradient(
+      64% 110% at 90% 108%,
+      rgb(255 113 130 / 0.9) 0%,
+      rgb(255 113 130 / 0) 66%
+    ),
+    radial-gradient(
+      62% 135% at 0% 12%,
+      #1874f6 0%,
+      rgb(24 116 246 / 0.55) 42%,
+      rgb(24 116 246 / 0) 78%
+    ),
+    linear-gradient(
+      180deg,
+      var(--color-brand-500) 0%,
+      var(--color-brand-gradient-end) 144%
+    );
 }
 
 
