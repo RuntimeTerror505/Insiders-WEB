@@ -1,4 +1,5 @@
 import type { ComponentProps, ComponentType, CSSProperties } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 import { ArrowRightIcon } from "@/components/icons/ui";
@@ -9,7 +10,11 @@ import { cn } from "@/lib/utils";
 export type CardGridItem = {
   id: string;
   title: string;
-  icon: ComponentType<ComponentProps<"svg">>;
+  /**
+   * Або компонент (lucide — так влаштовані підсторінки індустрій), або
+   * шлях до растрової іконки, експортованої з Figma.
+   */
+  icon: ComponentType<ComponentProps<"svg">> | string;
   /** Тіло картки: або абзац, або список пунктів */
   description?: string;
   items?: string[];
@@ -102,7 +107,18 @@ export default function CardGridSection({
                           aria-hidden
                           className="from-brand-500 to-brand-gradient-start grid size-12 shrink-0 place-items-center rounded-lg bg-linear-to-br text-white"
                         >
-                          <Icon className="size-6" />
+                          {typeof Icon === "string" ? (
+                            <Image
+                              src={Icon}
+                              alt=""
+                              width={64}
+                              height={64}
+                              unoptimized
+                              className="size-6"
+                            />
+                          ) : (
+                            <Icon className="size-6" />
+                          )}
                         </span>
                         <h3 className="text-xl leading-7 font-bold capitalize">
                           {cardTitle}

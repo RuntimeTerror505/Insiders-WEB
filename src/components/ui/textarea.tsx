@@ -12,7 +12,7 @@ function Textarea({ className, ...props }: ComponentProps<"textarea">) {
     <textarea
       data-slot="textarea"
       className={cn(
-        "border-input bg-background placeholder:text-placeholder not-focus-visible:hover:border-field-hover focus-visible:border-field-focus w-full resize-none rounded-[8px] border pt-3 pr-2 pb-1 pl-4 text-sm leading-6 transition-colors outline-none disabled:pointer-events-none disabled:opacity-50",
+        "border-input bg-background placeholder:text-placeholder not-focus-visible:hover:border-field-hover not-focus-visible:hover:placeholder:text-placeholder-hover focus-visible:border-field-focus focus-visible:placeholder:text-foreground w-full resize-none rounded-[8px] border pt-3 pr-2 pb-1 pl-4 text-sm leading-6 transition-colors outline-none disabled:pointer-events-none disabled:opacity-50",
         className
       )}
       {...props}

@@ -20,7 +20,7 @@ function Input({ className, ...props }: ComponentProps<"input">) {
     <input
       data-slot="input"
       className={cn(
-        "border-input bg-background placeholder:text-placeholder not-focus-visible:hover:border-field-hover focus-visible:border-field-focus h-12 w-full rounded-[8px] border py-3 pr-6 pl-4 text-sm leading-6 transition-colors outline-none disabled:pointer-events-none disabled:opacity-50",
+        "border-input bg-background placeholder:text-placeholder not-focus-visible:hover:border-field-hover not-focus-visible:hover:border-field-hover not-focus-visible:hover:placeholder:text-placeholder-hover focus-visible:border-field-focus focus-visible:placeholder:text-foreground h-12 w-full rounded-[8px] border py-3 pr-6 pl-4 text-sm leading-6 transition-colors outline-none disabled:pointer-events-none disabled:opacity-50",
         className
       )}
       {...props}

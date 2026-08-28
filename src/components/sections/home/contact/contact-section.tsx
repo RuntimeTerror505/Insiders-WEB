@@ -71,7 +71,7 @@ function Field({
         />
         <Icon
           aria-hidden
-          className="text-placeholder peer-not-focus-visible:peer-hover:text-field-hover peer-focus-visible:text-field-focus pointer-events-none absolute top-1/2 left-4 size-6 -translate-y-1/2 transition-colors"
+          className="text-input peer-not-focus-visible:peer-hover:text-field-hover peer-focus-visible:text-foreground pointer-events-none absolute top-1/2 left-4 size-6 -translate-y-1/2 transition-colors"
         />
       </div>
     </div>

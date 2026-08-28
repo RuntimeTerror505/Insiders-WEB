@@ -1,19 +1,10 @@
-import type { ComponentProps, ComponentType } from "react";
-import {
-  Heart,
-  Megaphone,
-  ShoppingBag,
-  ShoppingCart,
-  Truck,
-  Wallet,
-} from "lucide-react";
-
 export type Industry = {
   id: string;
   title: string;
   items: string[];
   href: string;
-  icon: ComponentType<ComponentProps<"svg">>;
+  /** Іконка з макета, експортована в avif: біла на прозорому, 64×64. */
+  icon: string;
 };
 
 // TODO: мок-дані з макета. Замінити на реальний перелік індустрій.
@@ -21,7 +12,7 @@ export const industries: Industry[] = [
   {
     id: "e-commerce",
     title: "E-Commerce",
-    icon: ShoppingCart,
+    icon: "/home/icons/shopping-cart-2.avif",
     href: "/industries/e-commerce",
     items: [
       "E-commerce Store Development",
@@ -34,7 +25,7 @@ export const industries: Industry[] = [
   {
     id: "healthcare",
     title: "HealthCare",
-    icon: Heart,
+    icon: "/home/icons/heart.avif",
     href: "/industries/healthcare",
     items: [
       "Telemedicine Solutions",
@@ -47,7 +38,7 @@ export const industries: Industry[] = [
   {
     id: "retail",
     title: "Retail",
-    icon: ShoppingBag,
+    icon: "/home/icons/shopping-bag-4.avif",
     href: "/industries/retail",
     items: [
       "Custom In-Store Navigation Solutions",
@@ -59,7 +50,7 @@ export const industries: Industry[] = [
   {
     id: "fintech",
     title: "FinTech",
-    icon: Wallet,
+    icon: "/home/icons/wallet.avif",
     href: "/industries/fintech",
     items: [
       "Digital Payment Systems",
@@ -71,7 +62,7 @@ export const industries: Industry[] = [
   {
     id: "social-media",
     title: "Social Media",
-    icon: Megaphone,
+    icon: "/home/icons/megaphone.avif",
     href: "/industries/social-media",
     items: [
       "Community App Development",
@@ -84,7 +75,7 @@ export const industries: Industry[] = [
   {
     id: "logistics",
     title: "Logistics",
-    icon: Truck,
+    icon: "/home/icons/truck.avif",
     href: "/industries/logistics",
     items: [
       "Delivery Management",
