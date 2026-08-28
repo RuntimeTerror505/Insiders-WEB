@@ -36,8 +36,8 @@ export default function HeroSection() {
             render={<Link href={emailHref} />}
             nativeButton={false}
             variant="brand"
-            size="xl"
-            className="shadow-button text-primary-foreground/85 h-[52px] z-10"
+            size="2xl"
+            className="text-primary-foreground/85 z-10"
           >
             Book a Call
             <ArrowRightIcon className="size-6" />

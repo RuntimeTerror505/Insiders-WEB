@@ -27,6 +27,20 @@
   --color-brand-950: #33012e;
 
   /*
+   * Ховер брендових кнопок з UI Kit (нода 1:7265). Теж поза шкалою:
+   * brand-600 (#c603b2) помітно синіший за те, що стоїть у макеті.
+   */
+  --color-brand-hover: #bf2aa9;
+
+  /*
+   * Поля вводу з UI Kit (нода 153:1712). Бордер у спокої — це --input,
+   * тут лежать два інші його стани і колір плейсхолдера.
+   */
+  --color-field-hover: #aeb2b6;
+  --color-field-focus: #53575b;
+  --color-placeholder: #878a8c;
+
+  /*
    * Кінці градієнта заголовків і логотипа. Окремо від шкали 50–950,
    * бо це власні значення з макета, а не її кроки.
    */
@@ -147,7 +161,8 @@
   --accent-foreground: var(--color-brand-700);
   --destructive: oklch(0.577 0.245 27.325);
   --border: #e0e3e6;
-  --input: #e0e3e6;
+  /* Бордер полів вводу з UI Kit — темніший за роздільники. */
+  --input: #c6c9cc;
   --ring: var(--color-brand-500);
   --chart-1: var(--color-brand-500);
   --chart-2: var(--color-brand-600);

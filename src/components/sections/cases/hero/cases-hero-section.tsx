@@ -26,8 +26,7 @@ export default function CasesHeroSection() {
               render={<Link href={emailHref} />}
               nativeButton={false}
               variant="brand"
-              size="xl"
-              className="shadow-button h-13"
+              size="2xl"
             >
               Hire Experts
               <ArrowRightIcon className="size-6" />

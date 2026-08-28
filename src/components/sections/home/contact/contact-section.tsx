@@ -6,6 +6,8 @@ import { Building2, Check, Mail, Phone, User } from "lucide-react";
 
 import Container from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 
 const MAX_MESSAGE = 5000;
 
@@ -45,21 +47,31 @@ function Field({
 }) {
   return (
     <div className="flex flex-col gap-2">
-      <label htmlFor={name} className="text-base leading-6">
-        {label} {required && <span aria-hidden>*</span>}
+      <label
+        htmlFor={name}
+        className="flex items-center gap-1 text-base leading-5 font-medium"
+      >
+        {label}
+        {required && <span aria-hidden>*</span>}
       </label>
+      {/*
+        Іконка йде в розмітці ПІСЛЯ поля — інакше peer-варіанти не бачать
+        його стану. Візуально це нічого не міняє, бо вона абсолютна.
+        Ховер описаний як «не у фокусі»: Tailwind сортує focus-* після
+        hover, але покладатися на цей порядок крихко, а фокус тут головний.
+      */}
       <div className="relative">
-        <Icon
-          aria-hidden
-          className="text-muted-foreground pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2"
-        />
-        <input
+        <Input
           id={name}
           name={name}
           type={type}
           required={required}
           placeholder={placeholder}
-          className="placeholder:text-muted-foreground focus-visible:border-primary focus-visible:outline-primary/30 h-12 w-full rounded-lg border pr-4 pl-12 text-base outline-none transition-colors focus-visible:outline-2"
+          className="peer pl-12"
+        />
+        <Icon
+          aria-hidden
+          className="text-placeholder peer-not-focus-visible:peer-hover:text-field-hover peer-focus-visible:text-field-focus pointer-events-none absolute top-1/2 left-4 size-6 -translate-y-1/2 transition-colors"
         />
       </div>
     </div>
@@ -122,11 +134,16 @@ export default function ContactSection() {
             </div>
 
             <div className="flex flex-col gap-2">
-              <label htmlFor="message" className="text-base leading-6">
-                What do you want to develop? <span aria-hidden>*</span>
+              <label
+                htmlFor="message"
+                className="flex items-center gap-1 text-base leading-5 font-medium"
+              >
+                What do you want to develop?
+                <span aria-hidden>*</span>
               </label>
               <div className="relative">
-                <textarea
+                {/* pb-8 — місце під лічильник, який лежить поверх поля. */}
+                <Textarea
                   id="message"
                   name="message"
                   required
@@ -134,9 +151,9 @@ export default function ContactSection() {
                   value={message}
                   onChange={(event) => setMessage(event.target.value)}
                   placeholder="Enter your message"
-                  className="placeholder:text-muted-foreground focus-visible:border-primary focus-visible:outline-primary/30 h-44 w-full resize-none rounded-lg border p-4 pb-8 text-base outline-none transition-colors focus-visible:outline-2"
+                  className="h-44 pb-8"
                 />
-                <span className="text-muted-foreground pointer-events-none absolute right-4 bottom-3 text-sm">
+                <span className="text-placeholder pointer-events-none absolute right-2 bottom-1 text-xs leading-6">
                   {message.length}/{MAX_MESSAGE}
                 </span>
               </div>

@@ -18,11 +18,14 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive/10 text-destructive hover:bg-destructive/20 focus-visible:border-destructive/40 focus-visible:ring-destructive/20 dark:bg-destructive/20 dark:hover:bg-destructive/30 dark:focus-visible:ring-destructive/40",
         link: "text-primary underline-offset-4 hover:underline",
-        // Макет «New Insiders»: контурна кнопка бренду (AI Plan у хедері).
         brand:
-          "bg-primary text-primary-foreground hover:bg-brand-600 aria-expanded:bg-brand-600",
+          "bg-primary text-primary-foreground shadow-button hover:bg-brand-hover active:bg-primary aria-expanded:bg-brand-hover",
         brandOutline:
-          "border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground aria-expanded:bg-primary aria-expanded:text-primary-foreground",
+          "border-primary bg-transparent text-primary hover:border-brand-hover hover:bg-brand-hover hover:text-primary-foreground active:border-primary active:bg-primary active:text-primary-foreground aria-expanded:border-brand-hover aria-expanded:bg-brand-hover aria-expanded:text-primary-foreground",
+        brandSecondary:
+          "bg-background text-foreground shadow-button hover:bg-[#ebeef5] hover:text-primary active:bg-background active:text-foreground aria-expanded:bg-[#ebeef5] aria-expanded:text-primary",
+        brandGhost:
+          "bg-transparent text-foreground hover:text-primary active:text-foreground aria-expanded:text-primary",
       },
       size: {
         default:
@@ -36,8 +39,17 @@ const buttonVariants = cva(
         "icon-sm":
           "size-7 rounded-[min(var(--radius-md),12px)] in-data-[slot=button-group]:rounded-lg",
         "icon-lg": "size-9",
-        // 48px висота / 24px горизонтальні падінги / 16px текст — як у макеті.
-        xl: "h-12 gap-1 px-6 text-base leading-6 font-semibold [&_svg:not([class*='size-'])]:size-5",
+        /*
+         * Дві висоти з UI Kit: SM 48px і MD 52px. Решта спільна — 24px
+         * горизонтальні падінги, текст 16/24 semibold, іконка 24px.
+         * Проміжок у макеті росте з 4px до 8px на ховері й натисканні.
+         */
+        xl: "h-12 gap-1 px-6 text-base leading-6 font-semibold hover:gap-2 active:gap-2 [&_svg:not([class*='size-'])]:size-6",
+        "2xl":
+          "h-13 gap-1 px-6 text-base leading-6 font-semibold hover:gap-2 active:gap-2 [&_svg:not([class*='size-'])]:size-6",
+        // Ghost із макета: без горизонтальних падінгів, висота 40px.
+        "ghost-md":
+          "h-10 gap-1 py-2 text-base leading-6 font-semibold hover:gap-2 active:gap-2 [&_svg:not([class*='size-'])]:size-6",
       },
     },
     defaultVariants: {

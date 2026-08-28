@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ArrowRightIcon } from "@/components/icons/ui";
 import Container from "@/components/layout/container";
+import { Button } from "@/components/ui/button";
 import { gridPosts, postCategories } from "@/data/posts";
 import { formatPostDate } from "@/lib/dates";
 import { cn } from "@/lib/utils";
@@ -110,25 +111,33 @@ export default function PostsListSection({
             >
               <div className="flex items-center gap-4">
                 {current > 1 && (
-                  <Link
-                    href={buildHref(category, current - 1)}
-                    rel="prev"
-                    className="border-primary text-primary hover:bg-primary hover:text-primary-foreground focus-visible:outline-ring inline-flex h-12 items-center gap-2 rounded-lg border px-6 text-base leading-6 font-semibold no-underline transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+                  <Button
+                    render={
+                      <Link href={buildHref(category, current - 1)} rel="prev" />
+                    }
+                    nativeButton={false}
+                    variant="brandOutline"
+                    size="xl"
+                    className="no-underline"
                   >
-                    <ArrowRightIcon className="size-5 rotate-180" />
+                    <ArrowRightIcon className="rotate-180" />
                     Previous
-                  </Link>
+                  </Button>
                 )}
 
                 {current < pageCount && (
-                  <Link
-                    href={buildHref(category, current + 1)}
-                    rel="next"
-                    className="bg-primary text-primary-foreground hover:bg-brand-600 focus-visible:outline-ring shadow-button inline-flex h-12 items-center gap-2 rounded-lg px-6 text-base leading-6 font-semibold no-underline transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+                  <Button
+                    render={
+                      <Link href={buildHref(category, current + 1)} rel="next" />
+                    }
+                    nativeButton={false}
+                    variant="brand"
+                    size="xl"
+                    className="no-underline"
                   >
                     Next
-                    <ArrowRightIcon className="size-5" />
-                  </Link>
+                    <ArrowRightIcon />
+                  </Button>
                 )}
               </div>
 

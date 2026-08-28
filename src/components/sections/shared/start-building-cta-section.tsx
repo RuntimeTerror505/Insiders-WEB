@@ -50,8 +50,7 @@ export default function StartBuildingCtaSection() {
             render={<Link href={emailHref} />}
             nativeButton={false}
             variant="brand"
-            size="xl"
-            className="shadow-button h-13"
+            size="2xl"
           >
             Speak to Us
             <ArrowRightIcon className="size-6" />

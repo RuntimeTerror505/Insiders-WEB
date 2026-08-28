@@ -31,8 +31,8 @@ export default function BorderedCtaSection({
             render={<Link href={action.href} />}
             nativeButton={false}
             variant="brand"
-            size="xl"
-            className="shadow-button h-13 shrink-0"
+            size="2xl"
+            className="shrink-0"
           >
             {action.label}
             <ArrowRightIcon className="size-6" />

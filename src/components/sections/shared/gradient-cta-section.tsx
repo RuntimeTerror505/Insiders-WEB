@@ -49,8 +49,8 @@ export default function GradientCtaSection({
           <Button
             render={<Link href={action.href} />}
             nativeButton={false}
-            size="xl"
-            className="shadow-button h-13 bg-white text-black hover:bg-white/90"
+            variant="brandSecondary"
+            size="2xl"
           >
             {action.label}
             <ArrowRightIcon className="size-6" />

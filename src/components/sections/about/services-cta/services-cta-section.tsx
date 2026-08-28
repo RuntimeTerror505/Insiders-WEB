@@ -25,8 +25,8 @@ export default function ServicesCtaSection() {
             render={<Link href={emailHref} />}
             nativeButton={false}
             variant="brand"
-            size="xl"
-            className="shadow-button h-13 shrink-0"
+            size="2xl"
+            className="shrink-0"
           >
             Book a Call
             <ArrowRightIcon className="size-6" />

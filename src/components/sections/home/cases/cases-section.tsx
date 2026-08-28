@@ -29,8 +29,7 @@ export default function CasesSection() {
             render={<Link href="/cases" />}
             nativeButton={false}
             variant="brand"
-            size="xl"
-            className="h-13 gap-1"
+            size="2xl"
           >
             More Cases
             <ArrowRight className="size-6" />

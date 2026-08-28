@@ -43,8 +43,8 @@ export default function BenefitsSection({
               render={<Link href={emailHref} />}
               nativeButton={false}
               variant="brand"
-              size="xl"
-              className="shadow-button h-auto min-h-13 shrink-0 py-3 text-center whitespace-normal sm:whitespace-nowrap"
+              size="2xl"
+              className="h-auto min-h-13 shrink-0 py-3 text-center whitespace-normal sm:whitespace-nowrap"
             >
               {action}
               <ArrowRightIcon className="size-6" />
