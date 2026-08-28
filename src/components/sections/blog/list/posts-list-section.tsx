@@ -87,7 +87,7 @@ export default function PostsListSection({
                     </div>
 
                     <div className="flex flex-1 flex-col gap-6 p-6">
-                      <h2 className="group-hover:text-primary text-xl leading-7 font-bold transition-colors">
+                      <h2 className="group-hover:text-primary text-xl leading-7 line-clamp-3 font-bold transition-colors">
                         {title}
                       </h2>
 

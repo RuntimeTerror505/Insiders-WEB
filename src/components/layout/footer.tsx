@@ -11,7 +11,6 @@ export default function Footer() {
   const { contacts, socials, legal, name } = siteConfig;
 
   return (
-    // Фрейм із макета: 1440×253, gap 32, падінг лише знизу 40
     <footer className="pb-10">
       <Container>
         <div className="mx-auto flex max-w-[1200px] flex-col gap-8">
@@ -35,7 +34,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Три рівні колонки: так email стає рівно по центру сторінки */}
           <div className="grid gap-4 sm:grid-cols-3">
             <address className="text-base leading-6 font-bold not-italic">
               {contacts.address}
@@ -50,8 +48,7 @@ export default function Footer() {
         </div>
       </Container>
 
-      {/* Лінія на всю ширину кадру, а не по контент-сітці */}
-      <div className="mt-8 border-t">
+      <div className="mt-8 pt-3 border-t">
         <Container>
           <div className="text-muted-foreground flex flex-col items-center gap-3 text-base leading-6">
             <p>

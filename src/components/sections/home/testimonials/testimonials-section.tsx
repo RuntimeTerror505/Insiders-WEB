@@ -9,8 +9,9 @@ export default function TestimonialsSection() {
   ];
 
   return (
-    <section className="flex flex-col gap-10 py-16 relative">
-      {/* <HeroRings className="absolute left-0 top-0"/> */}
+    <section className="relative isolate flex flex-col gap-10 overflow-clip py-16">
+      <HeroRings className="pointer-events-none absolute -top-60 left-20 -z-10 aspect-square h-auto w-[46%] max-w-none -translate-x-1/2 -translate-y-1/3 " />
+
       <h2 className="px-4 text-center text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.2] font-bold capitalize">
         Clients Say We Deliver
       </h2>

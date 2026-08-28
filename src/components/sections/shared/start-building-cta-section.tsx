@@ -9,7 +9,7 @@ import { emailHref } from "@/lib/site";
 export default function StartBuildingCtaSection() {
   return (
     <section className="relative overflow-x-clip py-24">
-      <HeroRings className="pointer-events-none absolute top-1/2 left-0 aspect-square h-auto w-[46%] max-w-none -translate-x-2/3 -translate-y-1/2 opacity-30" />
+      <HeroRings className="pointer-events-none absolute top-1/2 left-0 aspect-square h-auto w-[46%] max-w-none -translate-x-2/3 -translate-y-1/2" />
 
       <Container className="relative">
         <div className="mx-auto flex max-w-[810px] flex-col items-center gap-6 text-center">

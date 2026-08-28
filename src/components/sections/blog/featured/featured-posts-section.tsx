@@ -34,7 +34,7 @@ export default function FeaturedPostsSection() {
                   </Link>
 
                   <div className="flex flex-col gap-6">
-                    <h2 className="text-[clamp(1.5rem,2.5vw,2.25rem)] leading-[1.2] font-bold">
+                    <h2 className="line-clamp-3 text-[clamp(1.5rem,2.5vw,2.25rem)] leading-[1.2] font-bold">
                       <Link
                         href={`/blog/${slug}`}
                         className="hover:text-primary focus-visible:outline-ring rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-4"

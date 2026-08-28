@@ -45,7 +45,7 @@ export default function HeroSection() {
         </div>
         {/* animation section */}
         <div className="relative mx-auto mt-10 aspect-square w-full max-w-[560px]">
-          <HeroRings className="absolute top-[-10%] left-[-10%] size-[120%] sm:top-[-25%] sm:left-[-25%] sm:size-[150%]" />
+          <HeroRings className="absolute top-1/2 left-1/2 size-[110%] -translate-x-1/2 -translate-y-1/2 sm:size-[130%]" />
 
           <Image
             src="/hero-phones.avif"
