@@ -8,11 +8,14 @@
     "home": { "id": "1:7190", "name": "Home Page", "size": [1440, 10216] },
     "about": { "id": "213:2447", "name": "About Us", "size": [1440, 7765] },
     "cases": { "id": "271:3653", "name": "Cases", "size": [1440, 5782] },
-    "jobs": { "id": "325:1174", "name": "Jobs", "size": [1440, 2877] }
+    "jobs": { "id": "325:1174", "name": "Jobs", "size": [1440, 2877] },
+    "blog": { "id": "346:1221", "name": "Blog", "size": [1440, 2865] },
+    "uiKit": { "id": "1:7314", "name": "UI Kit", "note": "канвас: Button 1:7265, Input 153:1712, Nav 1:7285, Card 271:3634" }
   },
   "screenshots": {
     "cases": "design/figma-cases.png",
-    "jobs": "design/figma-jobs.png"
+    "jobs": "design/figma-jobs.png",
+    "blog": "design/figma-blog.png"
   },
   "cases": {
     "sections": [
@@ -249,5 +252,60 @@
       { "id": "325:1235", "name": "Footer", "at": [0, 2624], "size": [1440, 253] }
     ],
     "contact": { "email": "info@insiders_software.com", "telegram": "@rinapina_insiders" }
+  },
+  "blog": {
+    "sections": [
+      { "id": "346:1444", "name": "Header", "at": [0, 0], "size": [1440, 80] },
+      {
+        "id": "346:1225",
+        "name": "Heading",
+        "at": [120, 120],
+        "size": [1200, 171],
+        "copy": "Refreshing Articles for Businesses and Developers",
+        "type": "64px bold capitalize, ширина тексту 996, знизу лінія #e0e3e6 з відступом 16"
+      },
+      {
+        "id": "354:1781",
+        "name": "Featured post",
+        "at": [120, 331],
+        "size": [1200, 460],
+        "anatomy": "картинка 588×460 (radius 12, object-cover) ліворуч, gap 24, текстова колонка 588 з gap 16",
+        "type": {
+          "category": "20/28 regular #000",
+          "title": "32/40 bold UPPERCASE",
+          "excerpt": "16/24 regular #545659, кілька абзаців",
+          "meta": "16/24 #818286, дата · вертикальна риска 1×24 · час читання"
+        },
+        "note": "у макеті великий пост один, не два"
+      },
+      {
+        "id": "354:1823",
+        "name": "Categories",
+        "at": [120, 855],
+        "size": [1200, 41],
+        "items": ["App Development Guides", "App Development Trends", "E-Commerce Insights", "AI and ChatGPT Integration", "Popular", "Socialtech"],
+        "type": "16/24 regular, gap 24, знизу лінія #e0e3e6 з відступом 16; активний пункт підкреслений"
+      },
+      {
+        "id": "357:2083",
+        "name": "Grid",
+        "at": [120, 936],
+        "size": [1200, 1460],
+        "layout": "3 колонки по 384, gap 24 по горизонталі і 40 по вертикалі",
+        "card": {
+          "id": "354:1898",
+          "anatomy": "картинка 384×276 radius 12 -> gap 16 -> категорія 20/28 -> заголовок 20/28 bold UPPERCASE у три рядки -> мета",
+          "note": "ні автора, ні аватара — на відміну від попередньої верстки"
+        }
+      },
+      {
+        "id": "357:2230",
+        "name": "Pagination",
+        "at": [592, 2540],
+        "size": [256, 32],
+        "anatomy": "шеврон ‹ · номери 16/20 у клітинках 24 з radius 4 · шеврон ›; активний номер білий на чорному, решта #97989d, розриви як «...»"
+      },
+      { "id": "346:1282", "name": "Footer", "at": [0, 2612], "size": [1440, 253] }
+    ]
   }
 }

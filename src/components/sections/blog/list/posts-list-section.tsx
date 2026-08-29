@@ -1,11 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { ArrowRightIcon } from "@/components/icons/ui";
+import { ChevronDownIcon } from "@/components/icons/ui";
 import Container from "@/components/layout/container";
-import { Button } from "@/components/ui/button";
+import PostMeta from "@/components/sections/blog/post-meta";
 import { gridPosts, postCategories } from "@/data/posts";
-import { formatPostDate } from "@/lib/dates";
 import { cn } from "@/lib/utils";
 
 const PAGE_SIZE = 9;
@@ -17,6 +16,93 @@ function buildHref(category?: string, page?: number) {
 
   const query = params.toString();
   return query ? `/blog?${query}` : "/blog";
+}
+
+/**
+ * Номери сторінок як у макеті (нода 357:2230): перші й останні три плюс
+ * вікно навколо поточної, розриви між ними згортаються в «...».
+ */
+function pageItems(current: number, count: number): (number | "gap")[] {
+  const shown = new Set<number>();
+  for (const n of [
+    1,
+    2,
+    3,
+    current - 1,
+    current,
+    current + 1,
+    count - 2,
+    count - 1,
+    count,
+  ]) {
+    if (n >= 1 && n <= count) shown.add(n);
+  }
+
+  const sorted = [...shown].sort((a, b) => a - b);
+  return sorted.flatMap((n, i) =>
+    i > 0 && n - sorted[i - 1] > 1 ? ["gap" as const, n] : [n]
+  );
+}
+
+function PageLink({
+  page,
+  category,
+  active,
+}: {
+  page: number;
+  category?: string;
+  active: boolean;
+}) {
+  return (
+    <Link
+      href={buildHref(category, page)}
+      aria-current={active ? "page" : undefined}
+      className={cn(
+        "focus-visible:outline-ring grid w-6 place-items-center rounded-[4px] p-0.5 text-base leading-5 no-underline transition-colors focus-visible:outline-2 focus-visible:outline-offset-2",
+        active
+          ? "bg-foreground text-background font-medium"
+          : "hover:text-foreground text-[#97989d]"
+      )}
+    >
+      {page}
+    </Link>
+  );
+}
+
+/** Шеврон із того ж набору Remix, що й решта сайта — просто повернутий. */
+function PageArrow({
+  href,
+  label,
+  direction,
+}: {
+  href?: string;
+  label: string;
+  direction: "prev" | "next";
+}) {
+  const icon = (
+    <ChevronDownIcon
+      className={cn("size-6", direction === "prev" ? "rotate-90" : "-rotate-90")}
+    />
+  );
+
+  if (!href) {
+    return (
+      <span aria-hidden className="text-border p-1">
+        {icon}
+      </span>
+    );
+  }
+
+  return (
+    <Link
+      href={href}
+      rel={direction}
+      aria-label={label}
+      className="hover:text-primary focus-visible:outline-ring rounded-md p-1 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+    >
+      {icon}
+    </Link>
+  );
 }
 
 export default function PostsListSection({
@@ -39,7 +125,7 @@ export default function PostsListSection({
       <Container>
         <div className="mx-auto flex max-w-[1200px] flex-col gap-10">
           <nav aria-label="Categories" className="border-b pb-4">
-            <ul className="flex list-none flex-wrap items-center gap-x-8 gap-y-3">
+            <ul className="flex list-none flex-wrap items-center gap-x-6 gap-y-3">
               {postCategories.map((item) => {
                 const active = item === category;
 
@@ -51,8 +137,8 @@ export default function PostsListSection({
                       className={cn(
                         "focus-visible:outline-ring rounded-md text-base leading-6 no-underline transition-colors focus-visible:outline-2 focus-visible:outline-offset-4",
                         active
-                          ? "text-foreground font-bold"
-                          : "text-muted-foreground hover:text-foreground"
+                          ? "font-medium underline underline-offset-4"
+                          : "hover:text-primary"
                       )}
                     >
                       {item}
@@ -68,14 +154,22 @@ export default function PostsListSection({
               No articles in this category yet.
             </p>
           ) : (
-            <ul className="grid list-none gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {visible.map(({ slug, title, image, date, readingTime }) => (
-                <li key={slug} className="min-w-0">
-                  <Link
-                    href={`/blog/${slug}`}
-                    className="bg-surface group focus-visible:outline-ring flex h-full flex-col overflow-hidden rounded-xl border no-underline shadow-[0_2px_8px_rgb(51_1_46_/_0.05)] transition-shadow hover:shadow-[0_12px_40px_-12px_rgb(51_1_46_/_0.18)] focus-visible:outline-2 focus-visible:outline-offset-4"
-                  >
-                    <div className="bg-muted relative aspect-[384/220] overflow-hidden">
+            // 3 колонки по 384 з проміжком 24; між рядами в макеті 40
+            <ul className="grid list-none gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+              {visible.map(
+                ({
+                  slug,
+                  category: postCategory,
+                  title,
+                  image,
+                  date,
+                  readingTime,
+                }) => (
+                  <li key={slug} className="flex min-w-0 flex-col gap-4">
+                    <Link
+                      href={`/blog/${slug}`}
+                      className="focus-visible:outline-ring group bg-muted relative aspect-[384/276] overflow-hidden rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4"
+                    >
                       {image && (
                         <Image
                           src={image}
@@ -85,65 +179,67 @@ export default function PostsListSection({
                           className="object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                       )}
-                    </div>
+                    </Link>
 
-                    <div className="flex flex-1 flex-col gap-6 p-6">
-                      <h2 className="group-hover:text-primary text-xl leading-7 line-clamp-3 font-bold transition-colors">
+                    <p className="text-xl leading-7">{postCategory}</p>
+
+                    <h2 className="line-clamp-3 text-xl leading-7 font-bold uppercase">
+                      <Link
+                        href={`/blog/${slug}`}
+                        className="hover:text-primary focus-visible:outline-ring rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-4"
+                      >
                         {title}
-                      </h2>
+                      </Link>
+                    </h2>
 
-                      <p className="text-muted-foreground mt-auto flex items-center gap-3 text-base leading-6">
-                        <time dateTime={date}>{formatPostDate(date)}</time>
-                        <span aria-hidden>—</span>
-                        {readingTime} read
-                      </p>
-                    </div>
-                  </Link>
-                </li>
-              ))}
+                    <PostMeta date={date} readingTime={readingTime} />
+                  </li>
+                )
+              )}
             </ul>
           )}
 
           {pageCount > 1 && (
             <nav
               aria-label="Pagination"
-              className="flex flex-col items-center gap-3"
+              className="mt-6 flex items-center justify-center gap-3"
             >
-              <div className="flex items-center gap-4">
-                {current > 1 && (
-                  <Button
-                    render={
-                      <Link href={buildHref(category, current - 1)} rel="prev" />
-                    }
-                    nativeButton={false}
-                    variant="brandOutline"
-                    size="xl"
-                    className="no-underline"
-                  >
-                    <ArrowRightIcon className="rotate-180" />
-                    Previous
-                  </Button>
-                )}
+              <PageArrow
+                direction="prev"
+                label="Previous page"
+                href={current > 1 ? buildHref(category, current - 1) : undefined}
+              />
 
-                {current < pageCount && (
-                  <Button
-                    render={
-                      <Link href={buildHref(category, current + 1)} rel="next" />
-                    }
-                    nativeButton={false}
-                    variant="brand"
-                    size="xl"
-                    className="no-underline"
-                  >
-                    Next
-                    <ArrowRightIcon />
-                  </Button>
-                )}
-              </div>
+              <ul className="flex list-none items-center">
+                {pageItems(current, pageCount).map((item, index) => (
+                  <li key={item === "gap" ? `gap-${index}` : item}>
+                    {item === "gap" ? (
+                      <span
+                        aria-hidden
+                        className="grid w-6 place-items-center p-0.5 text-base leading-5 text-[#97989d]"
+                      >
+                        &hellip;
+                      </span>
+                    ) : (
+                      <PageLink
+                        page={item}
+                        category={category}
+                        active={item === current}
+                      />
+                    )}
+                  </li>
+                ))}
+              </ul>
 
-              <p className="text-muted-foreground text-base leading-6">
-                {current} / {pageCount}
-              </p>
+              <PageArrow
+                direction="next"
+                label="Next page"
+                href={
+                  current < pageCount
+                    ? buildHref(category, current + 1)
+                    : undefined
+                }
+              />
             </nav>
           )}
         </div>
