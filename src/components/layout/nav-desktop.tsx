@@ -12,19 +12,20 @@ import { cn } from "@/lib/utils";
 
 // Макет: 16px/24px Montserrat Regular, чорний, 4px між лейблом і шевроном.
 const triggerClassName =
-  "group flex cursor-pointer select-none items-center gap-1 bg-transparent text-base leading-6 font-normal whitespace-nowrap no-underline transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring";
+  "group flex cursor-pointer select-none items-center gap-1 bg-transparent text-base leading-6 font-normal whitespace-nowrap no-underline transition-colors hover:text-primary focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring";
 
-function NavLabel({ children, active }: { children: string; active: boolean }) {
+function NavLabel({ children }: { children: string }) {
   return (
     <span className="relative inline-block">
       {children}
-      {/* Line 1 з макета — 1px під лейблом, у стані спокою згорнутий у нуль. */}
+      {/*
+       * Line 1 з макета (нода 1:7296) — 1px під лейблом, у спокої згорнутий
+       * у нуль. Колір бере bg-current, тому разом із текстом стає брендовим.
+       * У стані Active лінії в макеті немає — там працює лише колір.
+       */}
       <span
         aria-hidden
-        className={cn(
-          "absolute inset-x-0 bottom-0 h-px origin-left bg-current transition-transform duration-300 ease-out",
-          active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-        )}
+        className="absolute inset-x-0 bottom-0 h-px origin-left scale-x-0 bg-current transition-transform duration-300 ease-out group-hover:scale-x-100"
       />
     </span>
   );
@@ -50,7 +51,7 @@ export default function NavDesktop() {
                       active ? "text-primary" : "text-foreground"
                     )}
                   >
-                    <NavLabel active={active}>{item.label}</NavLabel>
+                    <NavLabel>{item.label}</NavLabel>
                   </NavigationMenu.Link>
                 </NavigationMenu.Item>
               );
@@ -65,7 +66,7 @@ export default function NavDesktop() {
                     active ? "text-primary" : "text-foreground"
                   )}
                 >
-                  <NavLabel active={active}>{item.label}</NavLabel>
+                  <NavLabel>{item.label}</NavLabel>
                   <NavigationMenu.Icon className="flex shrink-0 items-center transition-transform duration-200 ease-out group-data-popup-open:rotate-180">
                     <ChevronDownIcon className="size-6" />
                   </NavigationMenu.Icon>
