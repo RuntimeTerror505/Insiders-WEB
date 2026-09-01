@@ -50,14 +50,14 @@ function Row({ shots, className }: { shots: Shot[]; className: string }) {
   return (
     <ul className={`grid list-none gap-4 lg:h-[274px] ${className}`}>
       {shots.map((shot) => (
-        <li key={shot.src} className="h-full">
+        <li key={shot.src} className="h-full rounded-xl">
           <Image
             src={shot.src}
             alt={shot.alt}
             width={shot.width}
             height={shot.height}
             sizes="(min-width: 1280px) 33vw, 100vw"
-            className="aspect-[3/2] h-full w-full rounded-xl object-cover lg:aspect-auto"
+            className="aspect-[3/2] h-full w-full object-cover transition-transform duration-300 ease-out hover:scale-105 lg:aspect-auto"
           />
         </li>
       ))}

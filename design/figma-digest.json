@@ -10,12 +10,14 @@
     "cases": { "id": "271:3653", "name": "Cases", "size": [1440, 5782] },
     "jobs": { "id": "325:1174", "name": "Jobs", "size": [1440, 2877] },
     "blog": { "id": "346:1221", "name": "Blog", "size": [1440, 2865] },
+    "blogArticle": { "id": "377:2372", "name": "Blog Article", "size": [1440, 4324] },
     "uiKit": { "id": "1:7314", "name": "UI Kit", "note": "канвас: Button 1:7265, Input 153:1712, Nav 1:7285, Card 271:3634" }
   },
   "screenshots": {
     "cases": "design/figma-cases.png",
     "jobs": "design/figma-jobs.png",
-    "blog": "design/figma-blog.png"
+    "blog": "design/figma-blog.png",
+    "blogArticle": "design/figma-blog-article.png"
   },
   "cases": {
     "sections": [
@@ -306,6 +308,51 @@
         "anatomy": "шеврон ‹ · номери 16/20 у клітинках 24 з radius 4 · шеврон ›; активний номер білий на чорному, решта #97989d, розриви як «...»"
       },
       { "id": "346:1282", "name": "Footer", "at": [0, 2612], "size": [1440, 253] }
+    ]
+  },
+  "blogArticle": {
+    "sections": [
+      { "id": "377:2524", "name": "Header", "at": [0, 0], "size": [1440, 80] },
+      {
+        "id": "377:2398",
+        "name": "Article header",
+        "at": [120, 106],
+        "size": [1200, 327],
+        "anatomy": "кнопка «Back To Blog» (ghost 136×40) -> H1 64px bold capitalize шириною 996 -> мета-рядок; проміжки 16",
+        "copy": { "back": "Back To Blog", "title": "The Complete Guide to Cross-Platform Mobile App Development in 2026" }
+      },
+      {
+        "id": "377:2400",
+        "name": "Article body",
+        "at": [120, 457],
+        "size": [1200, 2903],
+        "columns": { "article": 690, "sidebar": 486, "gap": 24 },
+        "article": {
+          "id": "379:2880",
+          "anatomy": "обкладинка 690×496 radius 12 -> лід -> розділи; між блоками 24, між абзацами 12",
+          "type": { "h2": "20/28 bold", "body": "16/24", "lead": "жирний зачин абзацу" },
+          "table": {
+            "id": "382:2968",
+            "columns": [180, 200, 310],
+            "head": ["Approach", "Examples", "How It Works"],
+            "style": "шапка UPPERCASE на світло-брендовому тлі, рядки розділені лінією"
+          }
+        },
+        "sidebar": {
+          "id": "382:3032",
+          "toc": { "id": "377:2403", "type": "назви розділів 16/24 semibold, підпункти 14/20 сірим з відступом, проміжок 4" },
+          "cta": { "id": "382:3033", "size": [486, 156], "copy": { "title": "Custom App Development", "button": "Contact Us" }, "style": "брендовий градієнт, padding 24, кнопка на всю ширину 52px" }
+        }
+      },
+      {
+        "id": "382:3058",
+        "name": "Gradient CTA",
+        "at": [0, 3564],
+        "size": [1440, 552],
+        "note": "той самий стос, що й у CTA головної — у коді shared/gradient-cta-section",
+        "copy": { "title": "Are you ready to increase your reach and drive business growth?", "button": "Get My AI Plan" }
+      },
+      { "id": "377:2373", "name": "Footer", "at": [0, 4071], "size": [1440, 253] }
     ]
   }
 }

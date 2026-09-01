@@ -42,14 +42,26 @@ const buttonVariants = cva(
         /*
          * Дві висоти з UI Kit: SM 48px і MD 52px. Решта спільна — 24px
          * горизонтальні падінги, текст 16/24 semibold, іконка 24px.
-         * Проміжок у макеті росте з 4px до 8px на ховері й натисканні.
+         *
+         * Проміжок у макеті росте з 4px до 8px на ховері й натисканні, але
+         * ширина кнопки при цьому не змінюється: у Figma вона зафіксована,
+         * і зайві 4px з'їдає падінг. Повторюємо це — 24px падінгу на ховері
+         * стають 22px з кожного боку, тобто 4px, які забрав gap, повертає
+         * падінг. Сума 48+gap лишається сталою, кнопка не «дихає».
+         *
+         * has-[svg] обов'язковий: без іконки дитина одна, gap не працює
+         * взагалі, і сам лише падінг зробив би кнопку на ховері вужчою.
          */
-        xl: "h-12 gap-1 px-6 text-base leading-6 font-semibold hover:gap-2 active:gap-2 [&_svg:not([class*='size-'])]:size-6",
+        xl: "h-12 gap-1 px-6 text-base leading-6 font-semibold hover:gap-2 hover:has-[svg]:px-[22px] active:gap-2 active:has-[svg]:px-[22px] [&_svg:not([class*='size-'])]:size-6",
         "2xl":
-          "h-13 gap-1 px-6 text-base leading-6 font-semibold hover:gap-2 active:gap-2 [&_svg:not([class*='size-'])]:size-6",
-        // Ghost із макета: без горизонтальних падінгів, висота 40px.
+          "h-13 gap-1 px-6 text-base leading-6 font-semibold hover:gap-2 hover:has-[svg]:px-[22px] active:gap-2 active:has-[svg]:px-[22px] [&_svg:not([class*='size-'])]:size-6",
+        /*
+         * Ghost із макета: без горизонтальних падінгів, висота 40px.
+         * Позичати 4px нема звідки, тому тут проміжок постійний, а на
+         * ховері роз'їжджається сама іконка — ширина теж стала.
+         */
         "ghost-md":
-          "h-10 gap-1 py-2 text-base leading-6 font-semibold hover:gap-2 active:gap-2 [&_svg:not([class*='size-'])]:size-6",
+          "h-10 gap-2 py-2 text-base leading-6 font-semibold [&_svg]:-translate-x-1 hover:[&_svg]:translate-x-0 active:[&_svg]:translate-x-0 [&_svg:not([class*='size-'])]:size-6",
       },
     },
     defaultVariants: {
