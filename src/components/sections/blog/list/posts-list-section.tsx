@@ -154,7 +154,6 @@ export default function PostsListSection({
               No articles in this category yet.
             </p>
           ) : (
-            // 3 колонки по 384 з проміжком 24; між рядами в макеті 40
             <ul className="grid list-none gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
               {visible.map(
                 ({
@@ -165,11 +164,11 @@ export default function PostsListSection({
                   date,
                   readingTime,
                 }) => (
-                  <li key={slug} className="flex min-w-0 flex-col gap-4">
-                    <Link
-                      href={`/blog/${slug}`}
-                      className="focus-visible:outline-ring group bg-muted relative aspect-[384/276] overflow-hidden rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4"
-                    >
+                  <li
+                    key={slug}
+                    className="group relative flex min-w-0 flex-col gap-4"
+                  >
+                    <div className="bg-muted relative aspect-[384/276] overflow-hidden rounded-xl">
                       {image && (
                         <Image
                           src={image}
@@ -179,16 +178,16 @@ export default function PostsListSection({
                           className="object-cover transition-transform duration-300 group-hover:scale-105"
                         />
                       )}
-                    </Link>
+                    </div>
 
                     <p className="text-xl leading-7">{postCategory}</p>
 
-                    <h2 className="line-clamp-3 text-xl leading-7 font-bold uppercase">
+                    <h2 className="text-xl leading-7 font-bold uppercase">
                       <Link
                         href={`/blog/${slug}`}
-                        className="hover:text-primary focus-visible:outline-ring rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-4"
+                        className="group-hover:text-primary focus-visible:outline-ring rounded-md transition-colors after:absolute after:inset-0 after:content-[''] focus-visible:outline-2 focus-visible:outline-offset-4"
                       >
-                        {title}
+                        <span className="line-clamp-3">{title}</span>
                       </Link>
                     </h2>
 

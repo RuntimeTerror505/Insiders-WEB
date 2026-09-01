@@ -7,6 +7,8 @@
 Імпортуй усе з `react` іменовано. Простір імен `React.*` не використовуємо —
 ні для хуків, ні для типів.
 
+Не писати коментарів у коді
+
 ```tsx
 // ✅
 import { useEffect, useRef, useState } from "react";
@@ -22,7 +24,7 @@ const ref = React.useRef<HTMLDivElement>(null);
 type IconProps = React.ComponentProps<"svg">;
 ```
 
-Потрібно притримуватись SEO оптимізації, щоб у майбутньому у нас був сайт з хорорим для пошуком для роботів Google
+Потрібно притримуватись SEO оптимізації, щоб у майбутньому у нас був сайт хорошим для пошуком для роботів Google
 
 Правило однакове для хуків (`useState`, `useEffect`, `useCallback`, `useMemo`,
 `useRef`, `useContext`, `createContext`) і для типів (`ComponentProps`,

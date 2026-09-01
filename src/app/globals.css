@@ -101,6 +101,22 @@
     }
   }
 
+  /*
+   * Мигання маркерів на карті світу. Кожен маркер отримує свою затримку
+   * інлайном, щоб вони не блимали в унісон.
+   */
+  --animate-marker-blink: marker-blink 2.4s ease-in-out infinite;
+
+  @keyframes marker-blink {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+  }
+
   /* Мерехтіння рамки картки на ховері. */
   --animate-card-shimmer: card-shimmer 1.6s ease-in-out infinite;
 

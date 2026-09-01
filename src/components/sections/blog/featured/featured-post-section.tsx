@@ -15,11 +15,8 @@ export default function FeaturedPostSection() {
   return (
     <section className="pt-10 pb-16">
       <Container>
-        <article className="mx-auto grid max-w-[1200px] items-center gap-6 lg:grid-cols-2">
-          <Link
-            href={`/blog/${slug}`}
-            className="focus-visible:outline-ring group bg-muted relative aspect-[588/460] overflow-hidden rounded-xl focus-visible:outline-2 focus-visible:outline-offset-4"
-          >
+        <article className="group relative mx-auto grid max-w-[1200px] items-center gap-6 lg:grid-cols-2">
+          <div className="bg-muted relative aspect-[588/460] overflow-hidden rounded-xl">
             {image && (
               <Image
                 src={image}
@@ -30,7 +27,7 @@ export default function FeaturedPostSection() {
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />
             )}
-          </Link>
+          </div>
 
           <div className="flex flex-col gap-4">
             <p className="text-xl leading-7">{category}</p>
@@ -38,7 +35,7 @@ export default function FeaturedPostSection() {
             <h2 className="text-[clamp(1.5rem,2.2vw,2rem)] leading-[1.25] font-bold uppercase">
               <Link
                 href={`/blog/${slug}`}
-                className="hover:text-primary focus-visible:outline-ring rounded-md transition-colors focus-visible:outline-2 focus-visible:outline-offset-4"
+                className="group-hover:text-primary focus-visible:outline-ring rounded-md transition-colors after:absolute after:inset-0 after:content-[''] focus-visible:outline-2 focus-visible:outline-offset-4"
               >
                 {title}
               </Link>
