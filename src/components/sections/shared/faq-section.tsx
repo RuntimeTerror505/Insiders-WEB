@@ -35,12 +35,12 @@ export default function FaqSection({
                 className={cn("flex flex-col", divided && "border-b py-8")}
               >
                 <Accordion.Header>
-                  <Accordion.Trigger className="group focus-visible:outline-ring hover:text-primary flex w-full items-center justify-between gap-6 rounded-md text-left text-xl leading-8 font-bold transition-colors focus-visible:outline-2 focus-visible:outline-offset-4">
+                  <Accordion.Trigger className="group focus-visible:outline-ring hover:text-primary flex w-full items-center justify-between gap-3 rounded-md text-left text-2xl leading-8 font-bold capitalize transition-colors focus-visible:outline-2 focus-visible:outline-offset-4">
                     {question}
                     {divided ? (
                       <Plus className="size-6 shrink-0 transition-transform duration-200 ease-out group-data-panel-open:rotate-45" />
                     ) : (
-                      <ChevronDownIcon className="size-6 shrink-0 transition-transform duration-200 ease-out group-data-panel-open:rotate-180" />
+                      <ChevronDownIcon className="size-8 shrink-0 transition-transform duration-200 ease-out group-data-panel-open:rotate-180" />
                     )}
                   </Accordion.Trigger>
                 </Accordion.Header>

@@ -65,3 +65,22 @@ export function QuoteIcon(props: IconProps) {
     </svg>
   );
 }
+
+/**
+ * arrow-drop-right-line (Remix Icon) — геометрія з макета індустрій
+ * (нода 412:4082). Бокс 40×40, у макеті іконку повертають на 90°,
+ * коли плитку розкрито.
+ */
+export function ArrowDropRightIcon(props: IconProps) {
+  return (
+    <svg
+      viewBox="0 0 40 40"
+      fill="currentColor"
+      aria-hidden
+      focusable="false"
+      {...props}
+    >
+      <path d="M20.2862 20.0008L15.5721 15.2867L17.9292 12.9297L25.0002 20.0008L17.9292 27.0718L15.5721 24.7148L20.2862 20.0008Z" />
+    </svg>
+  );
+}

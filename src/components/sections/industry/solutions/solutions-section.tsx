@@ -1,26 +1,21 @@
-import type { ComponentProps, ComponentType } from "react";
 import Image from "next/image";
 
 import Container from "@/components/layout/container";
+import IconTile, { type TileIcon } from "@/components/ui/icon-tile";
 
 export type Solution = {
   id: string;
   title: string;
   description: string;
-  icon: ComponentType<ComponentProps<"svg">>;
+  icon: TileIcon;
 };
 
-function SolutionItem({ title, description, icon: Icon }: Solution) {
+function SolutionItem({ title, description, icon }: Solution) {
   return (
-    <li className="flex flex-col gap-4">
-      <span
-        aria-hidden
-        className="from-brand-500 to-brand-gradient-start grid size-12 place-items-center rounded-lg bg-linear-to-br text-white"
-      >
-        <Icon className="size-6" />
-      </span>
+    <li className="flex flex-col gap-6">
+      <IconTile icon={icon} />
       <h3 className="text-xl leading-7 font-bold">{title}</h3>
-      <p className="text-muted-foreground text-base leading-6">{description}</p>
+      <p className="text-base leading-8">{description}</p>
     </li>
   );
 }
@@ -40,31 +35,31 @@ export default function SolutionsSection({
   return (
     <section className="py-16">
       <Container>
-        <div className="mx-auto flex max-w-[1200px] flex-col gap-12">
-          <h2 className="mx-auto max-w-[810px] text-center text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.2] font-bold text-balance">
+        <div className="mx-auto flex max-w-[1200px] flex-col gap-10">
+          <h2 className="mx-auto max-w-[996px] text-center text-[clamp(1.75rem,3.2vw,2.5rem)] leading-[1.2] font-bold text-balance capitalize">
             {title}
           </h2>
 
-          <div className="grid items-center gap-10 lg:grid-cols-[1fr_300px_1fr]">
-            <ul className="flex list-none flex-col gap-12">
+          <div className="grid items-center gap-10 lg:grid-cols-[1fr_384px_1fr]">
+            <ul className="flex list-none flex-col gap-6">
               {left.map((item) => (
                 <SolutionItem key={item.id} {...item} />
               ))}
             </ul>
 
-            <div className="bg-muted/40 relative mx-auto aspect-[300/600] w-[300px] max-w-full overflow-hidden rounded-3xl">
-              {image && (
+            {image && (
+              <div className="relative mx-auto aspect-[384/791] w-[384px] max-w-full">
                 <Image
                   src={image.src}
                   alt={image.alt}
                   fill
-                  sizes="300px"
+                  sizes="384px"
                   className="object-contain"
                 />
-              )}
-            </div>
+              </div>
+            )}
 
-            <ul className="flex list-none flex-col gap-12">
+            <ul className="flex list-none flex-col gap-6">
               {right.map((item) => (
                 <SolutionItem key={item.id} {...item} />
               ))}

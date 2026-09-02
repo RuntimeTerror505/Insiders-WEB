@@ -4,7 +4,6 @@ import {
   BarChart3,
   Bell,
   Boxes,
-  Building2,
   CalendarCheck,
   ClipboardCheck,
   Clock,
@@ -15,15 +14,11 @@ import {
   Handshake,
   HeartPulse,
   LineChart,
-  MessagesSquare,
   Package,
   Palette,
-  Repeat,
   Scan,
   ShieldCheck,
-  ShoppingBag,
   ShoppingCart,
-  Sliders,
   Sparkles,
   Stethoscope,
   Store,
@@ -35,7 +30,8 @@ import {
 
 import type { CardGridItem } from "@/components/sections/shared/card-grid-section";
 import type { Benefit } from "@/components/sections/industry/benefits/benefits-section";
-import type { Instrument } from "@/components/sections/industry/instruments/instruments-section";
+import type { Feature } from "@/components/sections/industry/features/features-section";
+import type { HeroMockup } from "@/components/sections/industry/hero/industry-hero-mockup";
 import type { Solution } from "@/components/sections/industry/solutions/solutions-section";
 import type { FaqItem } from "@/data/faq";
 
@@ -45,17 +41,18 @@ export type IndustryPage = {
   name: string;
   title: string;
   intro: string;
+  /** Хвіст ліду, який у макеті виділений напівжирним */
+  introHighlight?: string;
   summary: string;
   icon: ComponentType<ComponentProps<"svg">>;
-  heroImage: { src: string; alt: string };
+  heroImage?: { src: string; alt: string };
+  heroMockup?: HeroMockup;
   types: { title: string; subtitle: string; cards: CardGridItem[] };
   solutions: { title: string; items: Solution[]; image: { src: string; alt: string } };
-  features: { title: string; items: string[] };
+  features: { title: string; items: Feature[] };
   benefits: { title: string; accent: string; action: string; items: Benefit[] };
-  instruments: { title: string; items: Instrument[] };
   caseSlugs: string[];
   faq: FaqItem[];
-  cta: string;
 };
 
 const placeholderAnswer =
@@ -69,94 +66,103 @@ export const industryPages: IndustryPage[] = [
     title: "E-commerce App Development",
     intro:
       "We excel in crafting bespoke, high-performance e-commerce apps, integrating cutting-edge features and user-centric design to supercharge your online sales.",
+    introHighlight: "supercharge your online sales",
     summary:
       "Storefronts, marketplaces and loyalty apps that turn browsing into repeat purchases.",
     icon: ShoppingCart,
-    heroImage: {
-      src: "/industries/e-commerce/hero.avif",
-      alt: "Інтерфейс магазину з картками товарів і аналітикою продажів",
+    heroMockup: {
+      phone: {
+        src: "/industries/e-commerce/hero/phone.avif",
+        alt: "Екран застосунку з карткою кросівок Nike Air Max 270",
+      },
+      avatars: [
+        "/industries/e-commerce/hero/avatar-1.avif",
+        "/industries/e-commerce/hero/avatar-2.avif",
+        "/industries/e-commerce/hero/avatar-3.avif",
+      ],
+      stat: { value: "$452", label: "september" },
     },
     types: {
-      title: "Types of E-Commerce Apps We Develop",
+      title: "Types of E-commerce Apps We Develop",
       subtitle:
         "We specialize in a broad spectrum of e-commerce app development, including but not limited to:",
       cards: [
         {
           id: "b2c",
           title: "B2C Apps",
-          icon: ShoppingBag,
+          icon: "/industries/icons/user-received-2-fill.svg",
           description:
             "Apps tailored for direct interaction with your consumers. We create engaging user interfaces, seamless navigation, personalized content, and secure payment gateways to ensure the best shopping experience.",
         },
         {
           id: "b2b",
           title: "B2B Apps",
-          icon: Building2,
+          icon: "/industries/icons/briefcase-4-fill.svg",
           description:
             "Specialized apps designed to facilitate business transactions between you and your commercial partners. Features include bulk order placements, tiered pricing, custom catalogs, and CRM integration.",
         },
         {
           id: "c2c",
           title: "C2C Apps",
-          icon: Users,
+          icon: "/industries/icons/user-community-fill.svg",
           description:
             "Foster a community-driven marketplace with peer-to-peer selling features. Custom C2C apps provide a platform for your customers to buy and sell among themselves, with secure payment and dispute resolution systems.",
         },
         {
           id: "marketplace",
           title: "Marketplace Apps",
-          icon: Store,
+          icon: "/industries/icons/apps-fill.svg",
           description:
             "We develop multi-vendor marketplace apps that let you host multiple sellers on one platform. Provide a one-stop shopping destination for your customers while generating commission revenue from third-party sales.",
         },
         {
           id: "dropshipping",
           title: "Dropshipping Apps",
-          icon: Package,
+          icon: "/industries/icons/box-3-fill.svg",
           description:
             "Manage your business efficiently with a dropshipping model. We create apps that integrate with your suppliers, automatically updating product information and processing orders.",
         },
         {
           id: "wholesale",
           title: "Wholesale Apps",
-          icon: Boxes,
+          icon: "/industries/icons/git-branch-fill.svg",
           description:
             "Cater to large-scale buyers with a dedicated wholesale e-commerce app. Features include large volume ordering, dynamic pricing, and custom invoicing.",
         },
       ],
     },
     solutions: {
-      title: "Solutions That Target Conversion and Retention",
+      title: "Solutions that Target Conversion and Retention",
       image: {
-        src: "/industries/e-commerce/solutions.avif",
-        alt: "Екран застосунку з картою лояльності та графіком продажів",
+        src: "/industries/e-commerce/solutions/phone.avif",
+        alt: "Екран застосунку лояльності з графіком заощаджень",
       },
       items: [
         {
           id: "loyalty",
           title: "Customer Loyalty and Rewards Apps",
-          icon: Gift,
+          icon: "/industries/icons/star-fill.svg",
           description:
             "Encourage repeat business and improve retention with a custom app that tracks purchases, rewards loyal behavior, and offers personalized discounts.",
         },
         {
           id: "ugc",
           title: "User Generated Content Apps",
-          icon: MessagesSquare,
+          icon: "/industries/icons/thumb-up-fill.svg",
           description:
             "Foster a community feeling with apps that encourage customers to share reviews, ratings, and photos of products, enhancing trust and boosting conversions.",
         },
         {
           id: "retargeting",
           title: "Retargeting Apps",
-          icon: Target,
+          icon: "/industries/icons/crosshair-2-fill.svg",
           description:
             "Utilize data from user behavior to retarget them with relevant products and offers, thereby increasing the chances of conversion.",
         },
         {
           id: "subscription",
           title: "Subscription-Based Apps",
-          icon: Repeat,
+          icon: "/industries/icons/notification-2-fill.svg",
           description:
             "Attract and retain customers by offering subscription services for your products. This guarantees recurring revenue and encourages customer loyalty.",
         },
@@ -165,87 +171,125 @@ export const industryPages: IndustryPage[] = [
     features: {
       title: "Features We Integrate to Build Up Your App's Customer Loyalty Value",
       items: [
-        "AI Chatbots",
-        "Data Analysis and Reporting",
-        "Loyalty Programs and Rewards",
-        "Augmented Reality (AR) Features",
-        "Payment Gateways",
-        "Product Categories",
-        "Product Navigation",
-        "Multilingual Support",
-        "Push Notifications",
-        "Shopping Cart",
-        "Advertising",
-        "Sliders / Carousel",
+        {
+          id: "ai-chat-bot",
+          title: "AI Chat Bot",
+          description:
+            "These offer real-time assistance, resolving queries instantly to improve customer experience and reduce cart abandonment.",
+        },
+        {
+          id: "data-analysis",
+          title: "Data Analysis and Reporting",
+          description: placeholderAnswer,
+        },
+        {
+          id: "loyalty-programs",
+          title: "Loyalty Programs and Rewards",
+          description: placeholderAnswer,
+        },
+        {
+          id: "ar-features",
+          title: "Augmented Reality (AR) Features",
+          description: placeholderAnswer,
+        },
+        {
+          id: "payment-gateways",
+          title: "Payment Gateways",
+          description: placeholderAnswer,
+        },
+        {
+          id: "product-categories",
+          title: "Product Categories",
+          description: placeholderAnswer,
+        },
+        {
+          id: "product-navigation",
+          title: "Product Navigation",
+          description: placeholderAnswer,
+        },
+        {
+          id: "multilingual-support",
+          title: "Multilingual Support",
+          description: placeholderAnswer,
+        },
+        {
+          id: "push-notifications",
+          title: "Push Notifications",
+          description: placeholderAnswer,
+        },
+        {
+          id: "shopping-cart",
+          title: "Shopping Cart",
+          description: placeholderAnswer,
+        },
+        {
+          id: "advertising",
+          title: "Advertising",
+          description: placeholderAnswer,
+        },
+        {
+          id: "sliders-carousel",
+          title: "Sliders/Carousel",
+          description: placeholderAnswer,
+        },
       ],
     },
     benefits: {
       title: "Benefits of Our Advanced",
-      accent: "E-Commerce Apps",
+      accent: "E-commerce Apps",
       action: "Supercharge Your E-commerce",
       items: [
         {
           id: "customization",
           title: "100% Customization",
-          icon: Sliders,
+          icon: "/industries/icons/equalizer-fill.svg",
           description:
             "Our e-commerce apps are tailored to fit your unique business needs, ensuring every feature aligns with your brand and business goals.",
         },
         {
           id: "ux",
           title: "Contemporary UX/UI",
-          icon: Palette,
+          icon: "/industries/icons/pen-nib-fill.svg",
           description:
             "Stay ahead of the curve with our modern, intuitive, and visually appealing UI/UX designs that ensure easy navigation and a memorable shopping experience.",
         },
         {
           id: "realtime",
           title: "Real-time Interaction Solutions",
-          icon: Clock,
+          icon: "/industries/icons/time-fill.svg",
           description:
-            "Foster strong customer relationships with features like chat support or real-time inventory updates, enhancing customer satisfaction and engagement.",
+            "Foster strong customer relationships with features, like chat support or real-time inventory updates, enhancing customer satisfaction and engagement.",
         },
         {
           id: "source-code",
           title: "Source Code Authority",
-          icon: Code2,
+          icon: "/industries/icons/terminal-box-fill.svg",
           description:
             "Retain complete control and ownership of your app's source code, giving you the flexibility to modify or upgrade.",
         },
         {
           id: "quality",
           title: "Top-class Quality",
-          icon: ShieldCheck,
+          icon: "/industries/icons/award-fill.svg",
           description:
             "Expect nothing less than excellence with our e-commerce apps. We adhere to the highest standards of quality to deliver a superior, error-free user experience.",
         },
         {
           id: "support",
           title: "Future Maintenance & Support",
-          icon: Handshake,
+          icon: "/industries/icons/customer-service-fill.svg",
           description:
             "Enjoy peace of mind with our comprehensive maintenance and support services, ensuring your app remains up-to-date and performs optimally at all times.",
         },
       ],
     },
-    instruments: {
-      title: "Instruments We Have Worked On",
-      items: [
-        { name: "Shopify", logo: "/industries/instruments/shopify.avif" },
-        { name: "WooCommerce", logo: "/industries/instruments/woocommerce.avif" },
-        { name: "Wix", logo: "/industries/instruments/wix.avif" },
-        { name: "Insider", logo: "/industries/instruments/insider.avif" },
-        { name: "Google Analytics", logo: "/industries/instruments/google-analytics.avif" },
-        { name: "Klaviyo", logo: "/industries/instruments/klaviyo.avif" },
-      ],
-    },
-    caseSlugs: ["chill-bill", "goods2load"],
+    caseSlugs: ["chill-bill", "pixy"],
     faq: [
       {
         id: "from-scratch",
         question: "How do I develop an e-commerce app from scratch?",
         answer:
-          "Start with the shortest path to a first sale: one buyer flow, one payment provider, one fulfilment path. We spend a week on discovery, two to three on design, then build in two-week increments so you can put the app in front of real customers before the full catalogue is ready.",
+          "Developing an e-commerce app involves planning, designing, and coding a platform that enables online sales. First, define your target audience and key features like product listings, payments, and user authentication. Then, choose a technology stack (e.g., Flutter for cross-platform apps) and develop an MVP to test market demand before scaling.",
       },
       {
         id: "key-features",
@@ -269,12 +313,42 @@ export const industryPages: IndustryPage[] = [
         answer: placeholderAnswer,
       },
       {
+        id: "cost-factors",
+        question: "What factors affect the cost of e-commerce app development?",
+        answer: placeholderAnswer,
+      },
+      {
+        id: "ai",
+        question: "How can AI improve my e-commerce app?",
+        answer: placeholderAnswer,
+      },
+      {
+        id: "security",
+        question:
+          "How to ensure security and data protection in an e-commerce app?",
+        answer: placeholderAnswer,
+      },
+      {
+        id: "first-customers",
+        question: "How to attract the first customers to an e-commerce app?",
+        answer: placeholderAnswer,
+      },
+      {
         id: "marketing",
         question: "What are the best marketing strategies for e-commerce startups?",
         answer: placeholderAnswer,
       },
+      {
+        id: "profitable",
+        question: "Is e-commerce still profitable in 2025?",
+        answer: placeholderAnswer,
+      },
+      {
+        id: "payback",
+        question: "How long does it take to make money with an e-commerce app?",
+        answer: placeholderAnswer,
+      },
     ],
-    cta: "Drive Exponential Growth in Sales With an Exceptional App",
   },
   {
     slug: "healthcare",
@@ -378,18 +452,66 @@ export const industryPages: IndustryPage[] = [
     features: {
       title: "Features We Integrate to Make Care Continuous",
       items: [
-        "Video Consultations",
-        "E-Prescriptions",
-        "Wearable Integrations",
-        "Secure Messaging",
-        "Appointment Reminders",
-        "Lab Result Delivery",
-        "Insurance Claims",
-        "Multilingual Support",
-        "Consent Management",
-        "Audit Logging",
-        "Care Plan Tracking",
-        "Emergency Escalation",
+        {
+          id: "video-consultations",
+          title: "Video Consultations",
+          description: placeholderAnswer,
+        },
+        {
+          id: "e-prescriptions",
+          title: "E-Prescriptions",
+          description: placeholderAnswer,
+        },
+        {
+          id: "wearable-integrations",
+          title: "Wearable Integrations",
+          description: placeholderAnswer,
+        },
+        {
+          id: "secure-messaging",
+          title: "Secure Messaging",
+          description: placeholderAnswer,
+        },
+        {
+          id: "appointment-reminders",
+          title: "Appointment Reminders",
+          description: placeholderAnswer,
+        },
+        {
+          id: "lab-result-delivery",
+          title: "Lab Result Delivery",
+          description: placeholderAnswer,
+        },
+        {
+          id: "insurance-claims",
+          title: "Insurance Claims",
+          description: placeholderAnswer,
+        },
+        {
+          id: "multilingual-support",
+          title: "Multilingual Support",
+          description: placeholderAnswer,
+        },
+        {
+          id: "consent-management",
+          title: "Consent Management",
+          description: placeholderAnswer,
+        },
+        {
+          id: "audit-logging",
+          title: "Audit Logging",
+          description: placeholderAnswer,
+        },
+        {
+          id: "care-plan-tracking",
+          title: "Care Plan Tracking",
+          description: placeholderAnswer,
+        },
+        {
+          id: "emergency-escalation",
+          title: "Emergency Escalation",
+          description: placeholderAnswer,
+        },
       ],
     },
     benefits: {
@@ -441,17 +563,6 @@ export const industryPages: IndustryPage[] = [
         },
       ],
     },
-    instruments: {
-      title: "Instruments We Have Worked On",
-      items: [
-        { name: "Epic", logo: "/industries/instruments/epic.avif" },
-        { name: "FHIR", logo: "/industries/instruments/fhir.avif" },
-        { name: "Twilio", logo: "/industries/instruments/twilio.avif" },
-        { name: "Apple Health", logo: "/industries/instruments/apple-health.avif" },
-        { name: "Google Fit", logo: "/industries/instruments/google-fit.avif" },
-        { name: "Stripe", logo: "/industries/instruments/stripe.avif" },
-      ],
-    },
     caseSlugs: ["biosecurity", "pixy"],
     faq: [
       {
@@ -485,7 +596,6 @@ export const industryPages: IndustryPage[] = [
         answer: placeholderAnswer,
       },
     ],
-    cta: "Bring Continuous Care to Your Patients With a Dependable App",
   },
   {
     slug: "fintech",
@@ -589,18 +699,66 @@ export const industryPages: IndustryPage[] = [
     features: {
       title: "Features We Integrate to Keep Money Moving Safely",
       items: [
-        "KYC and AML Checks",
-        "Biometric Authentication",
-        "Card Issuing",
-        "Instant Transfers",
-        "Multi-Currency Accounts",
-        "Recurring Payments",
-        "Transaction Categorisation",
-        "Budgeting Tools",
-        "Push Notifications",
-        "Two-Factor Authentication",
-        "Statement Export",
-        "Audit Logging",
+        {
+          id: "kyc-and-aml-checks",
+          title: "KYC and AML Checks",
+          description: placeholderAnswer,
+        },
+        {
+          id: "biometric-authentication",
+          title: "Biometric Authentication",
+          description: placeholderAnswer,
+        },
+        {
+          id: "card-issuing",
+          title: "Card Issuing",
+          description: placeholderAnswer,
+        },
+        {
+          id: "instant-transfers",
+          title: "Instant Transfers",
+          description: placeholderAnswer,
+        },
+        {
+          id: "multi-currency-accounts",
+          title: "Multi-Currency Accounts",
+          description: placeholderAnswer,
+        },
+        {
+          id: "recurring-payments",
+          title: "Recurring Payments",
+          description: placeholderAnswer,
+        },
+        {
+          id: "transaction-categorisation",
+          title: "Transaction Categorisation",
+          description: placeholderAnswer,
+        },
+        {
+          id: "budgeting-tools",
+          title: "Budgeting Tools",
+          description: placeholderAnswer,
+        },
+        {
+          id: "push-notifications",
+          title: "Push Notifications",
+          description: placeholderAnswer,
+        },
+        {
+          id: "two-factor-authentication",
+          title: "Two-Factor Authentication",
+          description: placeholderAnswer,
+        },
+        {
+          id: "statement-export",
+          title: "Statement Export",
+          description: placeholderAnswer,
+        },
+        {
+          id: "audit-logging",
+          title: "Audit Logging",
+          description: placeholderAnswer,
+        },
       ],
     },
     benefits: {
@@ -652,17 +810,6 @@ export const industryPages: IndustryPage[] = [
         },
       ],
     },
-    instruments: {
-      title: "Instruments We Have Worked On",
-      items: [
-        { name: "Stripe", logo: "/industries/instruments/stripe.avif" },
-        { name: "Plaid", logo: "/industries/instruments/plaid.avif" },
-        { name: "Adyen", logo: "/industries/instruments/adyen.avif" },
-        { name: "Marqeta", logo: "/industries/instruments/marqeta.avif" },
-        { name: "Onfido", logo: "/industries/instruments/onfido.avif" },
-        { name: "Wise", logo: "/industries/instruments/wise.avif" },
-      ],
-    },
     caseSlugs: ["electricitywizard", "atlys"],
     faq: [
       {
@@ -696,7 +843,6 @@ export const industryPages: IndustryPage[] = [
         answer: placeholderAnswer,
       },
     ],
-    cta: "Launch a Financial Product Your Customers Trust With Their Money",
   },
   {
     slug: "retail",
@@ -800,18 +946,66 @@ export const industryPages: IndustryPage[] = [
     features: {
       title: "Features We Integrate to Connect Store and App",
       items: [
-        "Barcode Scanning",
-        "Loyalty Programs and Rewards",
-        "Stock Availability by Store",
-        "Click & Collect",
-        "Payment Gateways",
-        "Personalised Recommendations",
-        "Digital Receipts",
-        "Push Notifications",
-        "Store Locator",
-        "Returns and Exchanges",
-        "Multilingual Support",
-        "Gift Cards",
+        {
+          id: "barcode-scanning",
+          title: "Barcode Scanning",
+          description: placeholderAnswer,
+        },
+        {
+          id: "loyalty-programs-and-rewards",
+          title: "Loyalty Programs and Rewards",
+          description: placeholderAnswer,
+        },
+        {
+          id: "stock-availability-by-store",
+          title: "Stock Availability by Store",
+          description: placeholderAnswer,
+        },
+        {
+          id: "click-collect",
+          title: "Click & Collect",
+          description: placeholderAnswer,
+        },
+        {
+          id: "payment-gateways",
+          title: "Payment Gateways",
+          description: placeholderAnswer,
+        },
+        {
+          id: "personalised-recommendations",
+          title: "Personalised Recommendations",
+          description: placeholderAnswer,
+        },
+        {
+          id: "digital-receipts",
+          title: "Digital Receipts",
+          description: placeholderAnswer,
+        },
+        {
+          id: "push-notifications",
+          title: "Push Notifications",
+          description: placeholderAnswer,
+        },
+        {
+          id: "store-locator",
+          title: "Store Locator",
+          description: placeholderAnswer,
+        },
+        {
+          id: "returns-and-exchanges",
+          title: "Returns and Exchanges",
+          description: placeholderAnswer,
+        },
+        {
+          id: "multilingual-support",
+          title: "Multilingual Support",
+          description: placeholderAnswer,
+        },
+        {
+          id: "gift-cards",
+          title: "Gift Cards",
+          description: placeholderAnswer,
+        },
       ],
     },
     benefits: {
@@ -863,17 +1057,6 @@ export const industryPages: IndustryPage[] = [
         },
       ],
     },
-    instruments: {
-      title: "Instruments We Have Worked On",
-      items: [
-        { name: "Shopify POS", logo: "/industries/instruments/shopify.avif" },
-        { name: "SAP", logo: "/industries/instruments/sap.avif" },
-        { name: "Square", logo: "/industries/instruments/square.avif" },
-        { name: "Lightspeed", logo: "/industries/instruments/lightspeed.avif" },
-        { name: "Stripe", logo: "/industries/instruments/stripe.avif" },
-        { name: "Google Analytics", logo: "/industries/instruments/google-analytics.avif" },
-      ],
-    },
     caseSlugs: ["chill-bill", "goods2load"],
     faq: [
       {
@@ -907,7 +1090,6 @@ export const industryPages: IndustryPage[] = [
         answer: placeholderAnswer,
       },
     ],
-    cta: "Turn Every Store Visit Into a Repeat Customer",
   },
 ];
 

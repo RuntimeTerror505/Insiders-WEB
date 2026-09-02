@@ -1,10 +1,10 @@
-import type { ComponentProps, ComponentType, CSSProperties } from "react";
-import Image from "next/image";
+import type { CSSProperties } from "react";
 import Link from "next/link";
 
 import { ArrowRightIcon } from "@/components/icons/ui";
 import Container from "@/components/layout/container";
 import TiltCard from "@/components/sections/shared/tilt-card";
+import IconTile, { type TileIcon } from "@/components/ui/icon-tile";
 import { cn } from "@/lib/utils";
 
 export type CardGridItem = {
@@ -12,9 +12,9 @@ export type CardGridItem = {
   title: string;
   /**
    * Або компонент (lucide — так влаштовані підсторінки індустрій), або
-   * шлях до растрової іконки, експортованої з Figma.
+   * шлях до іконки, експортованої з Figma.
    */
-  icon: ComponentType<ComponentProps<"svg">> | string;
+  icon: TileIcon;
   /** Тіло картки: або абзац, або список пунктів */
   description?: string;
   items?: string[];
@@ -51,7 +51,7 @@ export default function CardGridSection({
       <Container>
         {/* Фрейм із макета: 1200 завширшки, вертикальний auto-layout з gap 40 */}
         <div className="mx-auto flex max-w-[1200px] flex-col gap-10">
-          <div className="flex flex-col gap-5 text-center">
+          <div className="flex flex-col gap-3 text-center">
             {eyebrow && (
               <p className="text-primary text-sm leading-6 font-bold tracking-[1.12px] uppercase">
                 {eyebrow}
@@ -61,7 +61,7 @@ export default function CardGridSection({
               {title}
             </h2>
             {subtitle && (
-              <p className="text-muted-foreground mx-auto max-w-[660px] text-xl leading-8">
+              <p className="text-muted-foreground mx-auto max-w-[996px] text-2xl leading-8">
                 {subtitle}
               </p>
             )}
@@ -102,31 +102,15 @@ export default function CardGridSection({
                         cardClassName
                       )}
                     >
-                      <div className="flex min-h-14 items-center gap-5">
-                        <span
-                          aria-hidden
-                          className="from-brand-500 to-brand-gradient-start grid size-12 shrink-0 place-items-center rounded-lg bg-linear-to-br text-white"
-                        >
-                          {typeof Icon === "string" ? (
-                            <Image
-                              src={Icon}
-                              alt=""
-                              width={64}
-                              height={64}
-                              unoptimized
-                              className="size-6"
-                            />
-                          ) : (
-                            <Icon className="size-6" />
-                          )}
-                        </span>
+                      <div className="flex min-h-14 items-center gap-4">
+                        <IconTile icon={Icon} />
                         <h3 className="text-xl leading-7 font-bold capitalize">
                           {cardTitle}
                         </h3>
                       </div>
 
                       {description && (
-                        <p className="text-base leading-6">{description}</p>
+                        <p className="text-base leading-8">{description}</p>
                       )}
 
                       {items && (
